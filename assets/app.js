@@ -733,9 +733,19 @@ window.__initForge = function () {
     return fetch("data/manifest.json")
       .then(function (r) { return r.ok ? r.json() : []; })
       .catch(function () { return []; })
+    var prefix = (location.pathname.indexOf("/explorer") >= 0) ? "../data/" : "data/";
+    return fetch(prefix + "manifest.json")
+      .then(function (r) {
+        if (!r.ok) return fetch("data/manifest.json").then(function (r2) { return r2.ok ? r2.json() : []; });
+        return r.json();
+      })
+      .catch(function () {
+        return fetch("../data/manifest.json").then(function (r2) { return r2.ok ? r2.json() : []; }).catch(function () { return []; });
+      })
       .then(function (list) {
         return (list || []).map(function (it) {
           return { key: "bundled:" + it.file, label: it.name, file: "data/" + it.file, saved: false };
+          return { key: "bundled:" + it.file, label: it.name, file: prefix + it.file, saved: false };
         });
       });
   }

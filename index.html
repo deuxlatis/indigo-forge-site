@@ -3,160 +3,207 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Optimization Risk Surface</title>
-<meta name="description" content="Explore a cTrader .optres optimization as an interactive 4D cluster plot. Runs entirely in your browser.">
+<title>Indigo Forge — Quantitative cBot for cTrader</title>
+<meta name="description" content="Indigo Forge is a quantitative algorithmic trading system and cBot for cTrader with empirical parameter risk surface modeling and copy trading.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#129482;</text></svg>">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/app.css">
 </head>
 <body>
 
-<div class="app">
-  <header class="head">
-    <div class="brand">
-      <h1 id="run-title">Optimization Risk Surface</h1>
-      <p id="run-sub">Loading…</p>
+<nav class="site-nav">
+  <a href="index.html" class="site-brand">
+    <span>INDIGO FORGE</span>
+    <span class="brand-badge">cBot</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Overview</a></li>
+    <li><a href="explorer/index.html">4D Explorer</a></li>
+    <li><a href="investors/index.html">Investor Portal</a></li>
+    <li><a href="https://github.com/gzarruk/indigo-forge" target="_blank" rel="noopener">GitHub</a></li>
+  </ul>
+</nav>
+
+<div class="page-wrapper">
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-tag"><i></i> Systematic FX & Metals cBot</div>
+    <h1 class="hero-title">Empirical Algorithmic Trading with Explicit Risk Geometry</h1>
+    <p class="hero-subtitle">
+      Indigo Forge is a quantitative cBot engineered for cTrader. Built around high-frequency order execution, dynamic position scaling, and rigorous parameter surface testing to expose the true geometry of tail risk before capital is committed.
+    </p>
+    <div class="hero-actions">
+      <a href="explorer/index.html" class="btn-primary">
+        <span>Launch 4D Risk Explorer</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <a href="#copy-trading" class="btn-secondary">Copy Trading</a>
+      <a href="investors/index.html" class="btn-secondary">Investor Portal</a>
     </div>
-    <div class="tiles">
-      <div class="tile"><div class="k">Passes shown</div><div class="v" id="t-n">—</div></div>
-      <div class="tile"><div class="k">Best equity</div><div class="v" id="t-eq">—</div></div>
-      <div class="tile"><div class="k">Median eq. drawdown</div><div class="v" id="t-dd">—</div></div>
-      <div class="tile"><div class="k">Best profit factor</div><div class="v" id="t-pf">—</div></div>
+  </section>
+
+  <!-- Performance vs Risk Matrix Section -->
+  <section class="section" id="performance">
+    <div class="section-header">
+      <div class="section-eyebrow">Multi-Year Baseline Sweep (2023–2025)</div>
+      <h2 class="section-title">Performance & Tail Risk Side-by-Side</h2>
+      <p class="section-desc">
+        Aggressive compounding can turn modest starting capital into exponential peak returns, but only by traversing extreme equity drawdowns. Below, peak returns are presented alongside the true downside risk across the entire 409-pass optimization manifold.
+      </p>
     </div>
-  </header>
 
-  <div class="split">
-    <aside class="rail">
-
-      <section class="sec">
-        <p class="eyebrow">Report <span id="rep-count"></span></p>
-        <div class="chan">
-          <label for="rep-pick">Showing</label><select id="rep-pick"></select>
+    <div class="matrix-grid">
+      <div class="matrix-card reward">
+        <div class="card-label">Peak Compounded Equity</div>
+        <div class="card-val pos">,057,086</div>
+        <div class="card-detail">
+          From <b>,000 start capital</b> in the top evaluation pass over 99,413 executed trades.
         </div>
-        <label class="btn filebtn" for="rep-file" tabindex="0" role="button">Add .optres files
-          <input type="file" id="rep-file" accept=".optres,.json,application/json" multiple>
-        </label>
-        <button class="btn" id="rep-del" hidden>Remove from this browser</button>
-        <p class="note" id="rep-note">Drop a <b>.optres</b> file anywhere on this page. It is parsed here in your browser and stored only on this device — the page has no server to send it to.</p>
-      </section>
+      </div>
 
-      <section class="sec">
-        <p class="eyebrow">Data hygiene <span id="hy-count">—</span></p>
-        <label class="sw">
-          <input type="checkbox" id="ex-so" checked><span class="box"></span>
-          <span class="lab">Drop stop-outs<em id="so-note">—</em></span>
-        </label>
-        <label class="sw">
-          <input type="checkbox" id="ex-dup" checked><span class="box"></span>
-          <span class="lab">Drop repeat evaluations<em id="dup-note">—</em></span>
-        </label>
-        <p class="note" id="hy-note"></p>
-      </section>
-
-      <section class="sec">
-        <p class="eyebrow">Filter</p>
-        <div class="fld">
-          <div class="top"><b>Profit factor at least</b><var id="v-pf">—</var></div>
-          <input type="range" id="f-pf" min="0" max="10" step="0.05" value="0">
+      <div class="matrix-card risk">
+        <div class="card-label">Max Equity Drawdown %</div>
+        <div class="card-val neg">95.97%</div>
+        <div class="card-detail">
+          Equivalent to a <b>-,007,752 floating equity drop</b> during the maximum stress period of the top run.
         </div>
-        <div class="fld">
-          <div class="top"><b>Equity drawdown at most</b><var id="v-dd">—</var></div>
-          <input type="range" id="f-dd" min="0" max="120" step="1" value="120">
+      </div>
+
+      <div class="matrix-card reward">
+        <div class="card-label">Max Profit Factor</div>
+        <div class="card-val pos">6.75</div>
+        <div class="card-detail">
+          Surviving runs maintained a median Profit Factor of <b>5.21</b> across stable parameter clusters.
         </div>
-        <div class="fld">
-          <div class="top"><b>Final equity at least</b><var id="v-eq">—</var></div>
-          <input type="range" id="f-eq" min="2" max="8" step="0.05" value="2">
+      </div>
+
+      <div class="matrix-card risk">
+        <div class="card-label">Account Blow-Up Rate</div>
+        <div class="card-val neg">24.0%</div>
+        <div class="card-detail">
+          <b>98 of 409 passes</b> suffered &ge; 100% equity drawdown and stopped out completely.
         </div>
-      </section>
+      </div>
+    </div>
 
-      <section class="sec">
-        <p class="eyebrow">Channels</p>
-        <div class="chan">
-          <label for="ax-x">X axis</label><select id="ax-x"></select>
-          <label for="ax-y">Y axis</label><select id="ax-y"></select>
-          <label for="ax-z">Z axis</label><select id="ax-z"></select>
-          <label for="ax-c">Colour</label><select id="ax-c"></select>
-        </div>
-        <p class="note">Clusters are computed on whichever four metrics sit here, so it stays a 4D grouping. Choosing a metric that's already in use swaps the two channels.</p>
-      </section>
+    <div class="callout risk-callout">
+      <b>Risk Disclosure on Compounding Runs:</b> In compounding strategies, log(equity), log(drawdown $), and drawdown % correlate 0.98&ndash;1.00 with each other (principal component analysis captures 98.6% of the variance on a single dimension). Peak return is fundamentally coupled with peak drawdown. Indigo Forge provides full 4D visibility so you can select defensive operating points inside a controlled drawdown budget.
+    </div>
+  </section>
 
-      <section class="sec">
-        <p class="eyebrow">Detail level</p>
-        <div class="seg" role="group" aria-label="Detail level">
-          <button id="m-auto" aria-pressed="true">Auto</button>
-          <button id="m-clu" aria-pressed="false">Clusters</button>
-          <button id="m-pts" aria-pressed="false">Points</button>
-        </div>
-        <label class="sw">
-          <input type="checkbox" id="hulls" checked><span class="box"></span>
-          <span class="lab">Cluster hulls<em>Shaded volumes sit in front of the points and block hovering — turn them off to reach every pass</em></span>
-        </label>
-        <p class="note">On <b>Auto</b>, zooming past halfway dissolves the hulls and renders every pass individually. Drag to orbit, scroll to zoom, right-drag to pan.</p>
-        <button class="btn" id="reset">Reset view</button>
-      </section>
+  <!-- Deep Dive Analysis -->
+  <section class="section" id="methodology">
+    <div class="section-header">
+      <div class="section-eyebrow">Quantitative Mechanics</div>
+      <h2 class="section-title">Why Standard Backtests Mislead</h2>
+      <p class="section-desc">
+        Most commercial trading bots showcase cherry-picked closed-balance curves. Indigo Forge evaluates true continuous mark-to-market equity.
+      </p>
+    </div>
 
-      <section class="sec">
-        <p class="eyebrow">Clusters <span id="k-val">4</span></p>
-        <input type="range" id="f-k" min="2" max="6" step="1" value="4" aria-label="Number of clusters">
-        <div class="clist" id="clist"></div>
-        <p class="note">k-means over the four mapped metrics, each standardized before distances are measured.</p>
-      </section>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>1. Equity vs. Balance Drawdown</h3>
+        <p>
+          Closed-trade balance graphs conceal intra-trade floating losses. If an algorithm holds adverse positions before price recovers, balance drawdown appears mild while equity drawdown may approach ruin. Indigo Forge measures every tick's floating equity.
+        </p>
+      </div>
 
-      <section class="sec">
-        <p class="eyebrow">About</p>
-        <p class="note">Everything runs client-side — your optimization files never leave this machine.
-        Source and issues on <a href="https://github.com/" id="repo-link">GitHub</a>.</p>
-      </section>
+      <div class="feature-card">
+        <h3>2. Temporal Separation of Drawdown Maxima</h3>
+        <p>
+          Max Drawdown % and Max Drawdown $ describe completely different moments on a compounding curve. The percentage peak occurs during early, low-capital sizing; the dollar peak occurs at high capital. Neither alone describes typical risk.
+        </p>
+      </div>
 
-    </aside>
+      <div class="feature-card">
+        <h3>3. Scale-Free Recovery Factor</h3>
+        <p>
+          Recovery factor (Net Profit &divide; Max Drawdown $) provides the only scale-free metric in the optimization set. It allows objective ranking of parameter efficiency within any fixed capital allocation.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <main class="stage">
-      <div class="lod" id="lod"><i></i><span id="lod-txt">Cluster view</span></div>
-      <div id="plot"></div>
-    </main>
+  <!-- 4D Explorer Interactive Callout -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">Empirical Validation</div>
+      <h2 class="section-title">Interactive 4D Optimization Explorer</h2>
+      <p class="section-desc">
+        Inspect the entire 409-pass parameter cloud directly in your browser. Rotate across 3D axes, map any fourth metric to color, and isolate robust clusters with k-means hulls.
+      </p>
+    </div>
 
-    <aside class="keyrail">
-      <section class="sec key">
-        <div>
-          <p class="eyebrow" id="key-title">Final equity </p>
-          <div class="ramp">
-            <div class="bar"></div>
-            <div class="ticks" id="key-ticks"></div>
-          </div>
-          <p class="xkey" id="xkey" hidden><i></i>stopped out</p>
-        </div>
-        <div class="readout" id="readout">
-          <div class="rh"><b>No pass selected</b><span>Readout</span></div>
-          <p class="empty">Hover a point for its numbers; click to pin it.</p>
-        </div>
-      </section>
-    </aside>
+    <div style="background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 32px; text-align: center;">
+      <h3 style="font-family: var(--cond); font-size: 20px; margin: 0 0 12px;">Explore the Full Parameter Surface</h3>
+      <p style="color: var(--ink-2); max-width: 600px; margin: 0 auto 24px;">
+        Switch between Profit Factor, Win Rate, Max Drawdown %, and Recovery Factor across any coordinate axis. Filter stop-outs and duplicates in real time.
+      </p>
+      <a href="explorer/index.html" class="btn-primary" style="display: inline-flex;">
+        <span>Open 4D Risk Explorer</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Copy Trading Guide -->
+  <section class="section" id="copy-trading">
+    <div class="section-header">
+      <div class="section-eyebrow">Execution & Onboarding</div>
+      <h2 class="section-title">cTrader Copy Strategy</h2>
+      <p class="section-desc">
+        Follow Indigo Forge live on institutional-grade cTrader brokerages with transparent equity replication and zero management fees.
+      </p>
+    </div>
+
+    <div class="copy-steps">
+      <div class="copy-step">
+        <div class="step-num">STEP 01</div>
+        <h4>Create a cTrader Account</h4>
+        <p>Open an account with a regulated cTrader broker (e.g., IC Markets, Pepperstone, Spotware) and fund your live balance.</p>
+      </div>
+
+      <div class="copy-step">
+        <div class="step-num">STEP 02</div>
+        <h4>Search for Indigo Forge</h4>
+        <p>Navigate to the cTrader Copy tab in your desktop, web, or mobile app and search for <b>Indigo Forge</b>.</p>
+      </div>
+
+      <div class="copy-step">
+        <div class="step-num">STEP 03</div>
+        <h4>Set Copy Sizing & Stop Loss</h4>
+        <p>Allocate capital proportionally and set an equity stop loss to enforce your personal risk budget independently.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Regulatory & Risk Disclaimer -->
+  <div class="disclaimer-box">
+    <div class="disclaimer-title">Important Risk Disclaimer & Regulatory Notice</div>
+    <p>
+      Trading foreign exchange, CFDs, and leveraged commodities involves substantial risk of loss and is not suitable for all investors. High degree of leverage can work against you as well as for you. Before deciding to trade or copy trade, carefully consider your investment objectives, level of experience, and risk tolerance.
+    </p>
+    <p>
+      Hypothetical or simulated performance results have certain inherent limitations. Unlike an actual performance record, simulated results do not represent actual trading. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown. Past performance is no guarantee of future results.
+    </p>
   </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div>
+      &copy; 2026 <b>Indigo Forge</b> &middot; Developed by Gustavo Zarruk &middot; MIT License
+    </div>
+    <div class="footer-links">
+      <a href="explorer/index.html">4D Explorer</a>
+      <a href="investors/index.html">Investors</a>
+      <a href="https://github.com/gzarruk/indigo-forge" target="_blank" rel="noopener">GitHub Repository</a>
+    </div>
+  </footer>
+
 </div>
 
-<div class="drop" id="drop" hidden><div>Drop .optres files to add them</div></div>
-<div class="toast" id="toast" hidden></div>
-
-<script src="assets/optres.js"></script>
-<script src="assets/store.js"></script>
-<script src="assets/app.js"></script>
-<script>
-(function () {
-  var srcs = [
-    "https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.0/plotly.min.js",
-    "https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"
-  ];
-  function go(i) {
-    if (window.Plotly || i >= srcs.length) { window.__initForge(); return; }
-    var s = document.createElement("script");
-    s.src = srcs[i];
-    s.onload = function () { go(i + 1); };
-    s.onerror = function () { go(i + 1); };
-    document.body.appendChild(s);
-  }
-  go(0);
-})();
-</script>
 </body>
 </html>

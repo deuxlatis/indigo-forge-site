@@ -22,6 +22,8 @@ def read(*parts):
 
 def main():
     html = read("index.html")
+    src_file = ["explorer", "index.html"] if (ROOT / "explorer" / "index.html").exists() else ["index.html"]
+    html = read(*src_file)
 
     body = re.search(r"<body>\n(.*)\n<script src", html, re.S).group(1)
     title = re.search(r"<title>(.*?)</title>", html).group(1)
