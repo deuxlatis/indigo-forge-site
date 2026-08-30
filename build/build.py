@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Bundle the site into one self-contained HTML file.
 
-The site itself (index.html + assets/ + data/) is what GitHub Pages serves.
-This script folds the same sources into dist/artifact.html, a single file with
-no external references except the fonts and the Plotly CDN — handy for emailing,
-for opening straight off disk, or for publishing as a Claude artifact.
+The site itself (the content pages + assets/ + data/) is what GitHub Pages
+serves. This script folds the 4D explorer's sources into dist/artifact.html, a
+single file with no external references except the fonts and the Plotly CDN —
+handy for emailing, for opening straight off disk, or for publishing as a
+Claude artifact.
 
 Usage:  python3 build/build.py
 """
@@ -21,7 +22,9 @@ def read(*parts):
 
 
 def main():
-    html = read("index.html")
+    # The explorer, not the landing page — it is the only page with the Plotly
+    # stage and the loader this bundle is built around.
+    html = read("explorer", "index.html")
 
     body = re.search(r"<body>\n(.*)\n<script src", html, re.S).group(1)
     title = re.search(r"<title>(.*?)</title>", html).group(1)
@@ -36,6 +39,7 @@ def main():
         fonts,
         "<style>",
         read("assets", "app.css"),
+        read("assets", "chrome.css"),
         "</style>",
         body,
         "<script>window.__BUNDLED = " + json.dumps(bundled, separators=(",", ":")) + ";</script>",

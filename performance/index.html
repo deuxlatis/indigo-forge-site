@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Performance &amp; Backtesting — Indigo Forge</title>
+<meta name="description" content="Three continuous years of H4 backtesting on the NOR25 index from a $2,000 start, with reward and risk shown side by side.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='92' fill='none' stroke='%23b68235' stroke-width='10'/><text x='100' y='132' text-anchor='middle' font-family='Georgia,serif' font-weight='600' font-size='92' fill='%23201f1d'>IF</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap">
+<link rel="stylesheet" href="../assets/classical.css">
+<link rel="stylesheet" href="../assets/chrome.css">
+</head>
+<body>
+
+<nav class="if-nav">
+  <a class="if-nav__brand" href="../index.html">
+    <svg class="if-nav__mark" viewBox="0 0 200 200" role="img" aria-hidden="true">
+      <circle class="ring" cx="100" cy="100" r="92" fill="none" stroke-width="4"></circle>
+      <text class="glyph" x="100" y="128" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="88">IF</text>
+    </svg>
+    <span>Indigo Forge</span>
+  </a>
+  <ul class="if-nav__links">
+    <li><a href="../index.html">Overview</a></li>
+    <li><a href="../philosophy/">Philosophy &amp; Risk</a></li>
+    <li><a href="./" aria-current="page">Performance</a></li>
+    <li><a href="../research/">Research</a></li>
+    <li><a href="../copy-trading/">Copy Trading</a></li>
+  </ul>
+  <a class="if-nav__portal" href="../investors/">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+    Investor Portal
+  </a>
+</nav>
+
+<main class="wrap">
+
+  <section class="hero">
+    <span class="eyebrow eyebrow-lg" style="margin-bottom:16px">Backtested track record · NOR25 · H4</span>
+    <h1 class="hero-title">Performance &amp; backtesting</h1>
+    <p class="lede" style="max-width:60ch">Three continuous years of H4 backtesting on NOR25, from a $2,000 start, alongside a live forward-tracked window. Reward and risk shown side by side — not just the curve that flatters.</p>
+  </section>
+
+  <section style="padding-bottom:16px">
+    <div class="card-row">
+      <div class="card">
+        <div class="card-kicker">Net profit</div>
+        <div class="card-title" style="color:var(--color-accent)">$123,761</div>
+        <p class="card-body">From $2,000 → $125,761 ending equity</p>
+      </div>
+      <div class="card">
+        <div class="card-kicker">Profit factor</div>
+        <div class="card-title">6.27</div>
+        <p class="card-body">Gross profit ÷ gross loss, all trades</p>
+      </div>
+      <div class="card">
+        <div class="card-kicker">Win rate</div>
+        <div class="card-title">78.5%</div>
+        <p class="card-body">679 winning of 865 trades</p>
+      </div>
+      <div class="card">
+        <div class="card-kicker">Average trade</div>
+        <div class="card-title">$136.74</div>
+        <p class="card-body">Per trade, net of swaps</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="figure" style="padding:44px 0 8px">
+    <span class="eyebrow eyebrow-quiet" style="margin-bottom:16px">Equity curve · 01/01/2023–31/12/2025 · illustrative shape from the backtest report</span>
+    <svg viewBox="0 0 800 260" preserveAspectRatio="none" role="img" aria-label="Backtested equity curve rising from $2,000 to $125,761, with a maximum equity drawdown of 45.7% partway through">
+      <line x1="0" y1="6" x2="800" y2="6" stroke="var(--color-divider)" stroke-width="1"></line>
+      <line x1="0" y1="230" x2="800" y2="230" stroke="var(--color-divider)" stroke-width="1"></line>
+      <polyline points="0,230 100,222 200,205 280,182 320,155 350,175 380,198 410,178 450,150 500,120 550,95 600,75 650,55 700,35 750,18 795,6" fill="none" stroke="var(--color-accent)" stroke-width="2.5"></polyline>
+      <circle cx="380" cy="198" r="4" fill="var(--color-accent-800)"></circle>
+    </svg>
+    <div class="figure__scale">
+      <span>Start · $2,000</span>
+      <span>Max equity drawdown here · −45.7%</span>
+      <span>End · $125,761</span>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:24px 0 40px">
+
+  <section style="padding-bottom:52px">
+    <span class="eyebrow" style="margin-bottom:20px">Risk, not just reward</span>
+    <table class="table">
+      <thead><tr><th scope="col">Metric</th><th scope="col">Value</th><th scope="col">Detail</th></tr></thead>
+      <tbody>
+        <tr><td>Max equity drawdown</td><td class="val">45.72%</td><td>−$38,336.57 floating, worst stress period</td></tr>
+        <tr><td>Max balance drawdown</td><td class="val">12.58%</td><td>−$12,665.68 on closed trades only</td></tr>
+        <tr><td>Max consecutive losses</td><td class="val">28</td><td>158 max consecutive wins in the same run</td></tr>
+        <tr><td>Largest single loss</td><td class="val">−$1,694.18</td><td>vs. largest win of $2,449.59</td></tr>
+      </tbody>
+    </table>
+    <p class="note" style="font-size:13px;margin-top:16px">Equity drawdown includes floating loss intra-trade; balance drawdown does not — see <a href="../philosophy/">why that distinction matters</a>.</p>
+  </section>
+
+  <hr class="hr" style="margin:0 0 52px">
+
+  <section class="section">
+    <span class="eyebrow" style="margin-bottom:20px">Live forward window</span>
+    <div class="split-even">
+      <div>
+        <h3 style="font-size:22px;font-weight:400;margin:0 0 12px">30 Mar – 29 Aug 2026</h3>
+        <p>A shorter, more recent window run on the same $2,000 baseline — early-account volatility is naturally higher in percentage terms, which is exactly the effect described on the <a href="../philosophy/">methodology page</a>.</p>
+        <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener" class="btn btn-secondary">View live profile on cTrader</a>
+      </div>
+      <div class="split-even__stats">
+        <div class="card"><div class="card-kicker">ROI</div><div class="card-title" style="font-size:22px">28.1%</div></div>
+        <div class="card"><div class="card-kicker">Net profit</div><div class="card-title" style="font-size:22px">$562</div></div>
+        <div class="card"><div class="card-kicker">Max eq. DD</div><div class="card-title" style="font-size:22px">43.6%</div></div>
+        <div class="card"><div class="card-kicker">Duration</div><div class="card-title" style="font-size:22px">4m 30d</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0 0 48px">
+
+  <section style="padding-bottom:64px">
+    <div class="panel">
+      <h3>Read this responsibly</h3>
+      <p>These are backtested and simulated results, not an audited live track record. Simulated performance has inherent limitations and does not represent actual trading; past performance does not guarantee future results.</p>
+      <p>Want to see how these numbers hold up across parameter choices? Open the <a href="../research/">409-pass optimization sweep</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="if-footer">
+  <p>Trading CFDs and leveraged products carries a high level of risk and may not be suitable for all investors. Backtested and simulated results have inherent limitations and do not represent actual trading; past performance does not guarantee future results.</p>
+  <div class="if-footer__links">
+    <span>© 2026 Indigo Forge · Traded live as DeuxLatis</span>
+    <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener">cTrader Profile</a>
+    <a href="https://ctrader.com/products/3804" target="_blank" rel="noopener">Indigo</a>
+    <a href="https://ctrader.com/products/3851" target="_blank" rel="noopener">Indigo Trend</a>
+  </div>
+</footer>
+
+</body>
+</html>

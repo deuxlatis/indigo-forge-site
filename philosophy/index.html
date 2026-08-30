@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Philosophy &amp; Risk — Indigo Forge</title>
+<meta name="description" content="The risk framework behind Indigo Forge: equity-based position sizing, exposure caps and an equity circuit breaker on the NOR25 index.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='92' fill='none' stroke='%23b68235' stroke-width='10'/><text x='100' y='132' text-anchor='middle' font-family='Georgia,serif' font-weight='600' font-size='92' fill='%23201f1d'>IF</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap">
+<link rel="stylesheet" href="../assets/classical.css">
+<link rel="stylesheet" href="../assets/chrome.css">
+</head>
+<body>
+
+<nav class="if-nav">
+  <a class="if-nav__brand" href="../index.html">
+    <svg class="if-nav__mark" viewBox="0 0 200 200" role="img" aria-hidden="true">
+      <circle class="ring" cx="100" cy="100" r="92" fill="none" stroke-width="4"></circle>
+      <text class="glyph" x="100" y="128" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="88">IF</text>
+    </svg>
+    <span>Indigo Forge</span>
+  </a>
+  <ul class="if-nav__links">
+    <li><a href="../index.html">Overview</a></li>
+    <li><a href="./" aria-current="page">Philosophy &amp; Risk</a></li>
+    <li><a href="../performance/">Performance</a></li>
+    <li><a href="../research/">Research</a></li>
+    <li><a href="../copy-trading/">Copy Trading</a></li>
+  </ul>
+  <a class="if-nav__portal" href="../investors/">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+    Investor Portal
+  </a>
+</nav>
+
+<main class="wrap">
+
+  <section class="hero">
+    <span class="eyebrow eyebrow-lg" style="margin-bottom:16px">Methodology</span>
+    <h1 class="hero-title" style="max-width:18ch">Risk engineered, not hoped for</h1>
+    <p class="lede">Indigo Forge's edge on NOR25 is proprietary and stays that way. What follows are the principles that govern how big a position gets, when exposure is capped, and when the strategy protects itself — not the entry and exit rules themselves.</p>
+  </section>
+
+  <p class="pill" style="margin:0 0 48px">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+    Entry/exit logic and exact parameters are not published — confidential IP.
+  </p>
+
+  <section class="section">
+    <span class="eyebrow" style="margin-bottom:20px">The risk chain</span>
+    <div class="chain">
+      <div class="chain__step">
+        <h3>Position sizing</h3>
+        <p>Size is set from account equity at the moment a trade opens, not from a fixed lot table — so a drawdown reduces size automatically, before any rule has to intervene.</p>
+      </div>
+      <div class="chain__arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div>
+      <div class="chain__step">
+        <h3>Exposure caps</h3>
+        <p>A ceiling on open positions and total exposure to NOR25 at once, so a run of correlated signals can't compound into a single oversized bet.</p>
+      </div>
+      <div class="chain__arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div>
+      <div class="chain__step">
+        <h3>Equity circuit breaker</h3>
+        <p>A drawdown threshold on floating equity, not just closed balance, that trims or halts activity before a stress period becomes a stop-out.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0 0 48px">
+
+  <section class="section">
+    <span class="eyebrow" style="margin-bottom:20px">Why standard backtests mislead</span>
+    <div class="cols-3">
+      <div>
+        <h3 style="font-size:20px">Equity vs. balance drawdown</h3>
+        <p style="font-size:14.5px">Closed-trade balance curves hide intra-trade floating loss. If a position sits underwater before recovering, balance drawdown looks mild while true equity drawdown does not. Every figure on this site is measured on equity.</p>
+      </div>
+      <div>
+        <h3 style="font-size:20px">Two different moments</h3>
+        <p style="font-size:14.5px">Max drawdown % and max drawdown $ happen at different points on a compounding curve — the percentage peak early on small capital, the dollar peak later at scale. Neither alone tells the whole story.</p>
+      </div>
+      <div>
+        <h3 style="font-size:20px">Scale-free recovery</h3>
+        <p style="font-size:14.5px">Recovery factor — net profit over max drawdown $ — is the one metric that doesn't depend on account size, so it's used to compare parameter sets fairly in the <a href="../research/">optimization sweep</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0 0 48px">
+
+  <section style="padding-bottom:64px">
+    <span class="eyebrow" style="margin-bottom:16px">Why one index</span>
+    <h2 style="font-size:28px;font-weight:400;margin:0 0 14px;max-width:22ch">NOR25 gets the whole strategy's attention</h2>
+    <p style="font-size:15.5px;line-height:1.65;max-width:64ch;color:var(--ink-78);text-align:justify;margin:0 0 14px">Every parameter is tuned to one index's own volatility regime, swap schedule and liquidity window — not averaged across a basket of instruments that behave differently. That specialization is the trade-off for giving up diversification.</p>
+    <p style="font-size:14px;color:var(--ink-60);margin:0">See how that trade-off performs in <a href="../performance/">Performance &amp; Backtesting</a>.</p>
+  </section>
+
+</main>
+
+<footer class="if-footer">
+  <p>Trading CFDs and leveraged products carries a high level of risk and may not be suitable for all investors. Backtested and simulated results have inherent limitations and do not represent actual trading; past performance does not guarantee future results.</p>
+  <div class="if-footer__links">
+    <span>© 2026 Indigo Forge · Traded live as DeuxLatis</span>
+    <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener">cTrader Profile</a>
+    <a href="https://ctrader.com/products/3804" target="_blank" rel="noopener">Indigo</a>
+    <a href="https://ctrader.com/products/3851" target="_blank" rel="noopener">Indigo Trend</a>
+  </div>
+</footer>
+
+</body>
+</html>

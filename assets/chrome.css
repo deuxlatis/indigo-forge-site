@@ -1,0 +1,131 @@
+/* ==========================================================================
+   Indigo Forge — shared site chrome (nav + footer)
+   Loaded by BOTH the light Classical content pages and the dark tool pages
+   (explorer, investor portal), so navigation is identical everywhere.
+   Every selector is `if-`-prefixed and nothing here touches body/h1/a, so it
+   composes with classical.css and app.css without collisions.
+   The `.if-chrome-dark` modifier reskins the same markup for the dark tools.
+   ========================================================================== */
+
+.if-nav,
+.if-footer {
+  --if-chrome-bg: #f3f2f2;
+  --if-chrome-ink: #201f1d;
+  --if-chrome-accent: #b68235;
+  --if-chrome-line: color-mix(in srgb, #201f1d 16%, transparent);
+  --if-chrome-heading: "Cormorant Garamond", Georgia, serif;
+  --if-chrome-body: "Lora", Georgia, serif;
+}
+
+.if-nav.if-chrome-dark,
+.if-footer.if-chrome-dark {
+  --if-chrome-bg: #14171a;
+  --if-chrome-ink: #e9eef2;
+  --if-chrome-accent: #f0a52a;
+  --if-chrome-line: rgba(233, 238, 242, 0.10);
+}
+
+/* — navigation — */
+
+.if-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 14px 24px;
+  background: var(--if-chrome-bg);
+  color: var(--if-chrome-ink);
+  border-bottom: 1px solid var(--if-chrome-line);
+  font-family: var(--if-chrome-body);
+}
+
+.if-nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: none;
+  margin-right: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.if-nav__mark { width: 24px; height: 24px; flex: none; display: block; }
+.if-nav__mark .ring { stroke: var(--if-chrome-accent); }
+.if-nav__mark .glyph { fill: var(--if-chrome-ink); }
+
+.if-nav__brand span {
+  font-family: var(--if-chrome-heading);
+  font-weight: 600;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.if-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.if-nav a {
+  font-size: 14px;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.if-nav__links a:hover,
+.if-nav__portal:hover { color: var(--if-chrome-accent); }
+
+.if-nav__links a[aria-current="page"],
+.if-nav__portal[aria-current="page"] { color: var(--if-chrome-accent); }
+
+.if-nav__portal {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+}
+
+.if-nav__portal svg { display: block; flex: none; }
+
+.if-nav a:focus-visible,
+.if-footer a:focus-visible {
+  outline: 2px solid var(--if-chrome-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Six items plus a brand will not fit a phone. Below the desktop breakpoint the
+   row is allowed to wrap and the portal link gives up its auto margin, rather
+   than overflowing the viewport. */
+@media (max-width: 900px) {
+  .if-nav { flex-wrap: wrap; gap: 12px 16px; padding: 12px 20px; }
+  .if-nav__links { flex-wrap: wrap; gap: 12px 16px; }
+  .if-nav__portal { margin-left: 0; }
+}
+
+/* — footer — */
+
+.if-footer {
+  border-top: 1px solid var(--if-chrome-line);
+  background: var(--if-chrome-bg);
+  padding: 28px 32px;
+  font-family: var(--if-chrome-body);
+  font-size: 12px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--if-chrome-ink) 60%, transparent);
+}
+
+.if-footer p { margin: 0; }
+
+.if-footer a { color: var(--if-chrome-accent); text-underline-offset: 3px; }
+
+.if-footer__links {
+  margin-top: 12px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}

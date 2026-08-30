@@ -7,22 +7,31 @@
 <meta name="description" content="Explore Indigo Forge cBot optimizations as an interactive 4D parameter risk cloud. Runs client-side.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#129482;</text></svg>">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Lora:wght@400;600&display=swap">
 <link rel="stylesheet" href="../assets/app.css">
+<link rel="stylesheet" href="../assets/chrome.css">
 </head>
 <body>
 
-<nav class="site-nav">
-  <a href="../index.html" class="site-brand">
-    <span>INDIGO FORGE</span>
-    <span class="brand-badge">cBot</span>
+<nav class="if-nav if-chrome-dark">
+  <a class="if-nav__brand" href="../index.html">
+    <svg class="if-nav__mark" viewBox="0 0 200 200" role="img" aria-hidden="true">
+      <circle class="ring" cx="100" cy="100" r="92" fill="none" stroke-width="4"></circle>
+      <text class="glyph" x="100" y="128" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="88">IF</text>
+    </svg>
+    <span>Indigo Forge</span>
   </a>
-  <ul class="nav-links">
+  <ul class="if-nav__links">
     <li><a href="../index.html">Overview</a></li>
-    <li><a href="./index.html" class="active">4D Explorer</a></li>
-    <li><a href="../investors/index.html">Investor Portal</a></li>
-    <li><a href="https://github.com/gzarruk/indigo-forge" target="_blank" rel="noopener">GitHub</a></li>
+    <li><a href="../philosophy/">Philosophy &amp; Risk</a></li>
+    <li><a href="../performance/">Performance</a></li>
+    <li><a href="../research/" aria-current="page">Research</a></li>
+    <li><a href="../copy-trading/">Copy Trading</a></li>
   </ul>
+  <a class="if-nav__portal" href="../investors/">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+    Investor Portal
+  </a>
 </nav>
 
 <div class="app">
@@ -150,6 +159,17 @@
 
 <div class="drop" id="drop" hidden><div>Drop .optres files to add them</div></div>
 <div class="toast" id="toast" hidden></div>
+
+<footer class="if-footer if-chrome-dark">
+  <p>Trading CFDs and leveraged products carries a high level of risk and may not be suitable for all investors. Backtested and simulated results have inherent limitations and do not represent actual trading; past performance does not guarantee future results.</p>
+  <div class="if-footer__links">
+    <span>© 2026 Indigo Forge · Traded live as DeuxLatis</span>
+    <a href="../research/">About this tool</a>
+    <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener">cTrader Profile</a>
+    <a href="https://ctrader.com/products/3804" target="_blank" rel="noopener">Indigo</a>
+    <a href="https://ctrader.com/products/3851" target="_blank" rel="noopener">Indigo Trend</a>
+  </div>
+</footer>
 
 <script src="../assets/optres.js"></script>
 <script src="../assets/store.js"></script>
