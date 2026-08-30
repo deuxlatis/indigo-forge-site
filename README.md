@@ -1,6 +1,6 @@
 # Indigo Forge
 
-A high-performance algorithmic trading system and quantitative cBot for cTrader, featuring empirical risk surface analysis, copy trading integration, and a sign-in-gated investor ledger.
+A systematic cBot trading a single instrument — the **NOR25 index** — live on cTrader under the trading name **DeuxLatis**. The site presents the strategy's risk framework, backtested track record, a public optimization research tool, copy-trading onboarding, and a sign-in-gated investor ledger.
 
 - **Live Site:** [https://indigo.gzarruk.com](https://indigo.gzarruk.com)
 - **4D Optimization Explorer:** [https://indigo.gzarruk.com/explorer/](https://indigo.gzarruk.com/explorer/)
@@ -11,23 +11,40 @@ A high-performance algorithmic trading system and quantitative cBot for cTrader,
 
 ## Site Architecture
 
-The project is structured into three integrated components:
+Five static content pages plus two interactive tools.
 
-1. **Public Landing Page (`/index.html`)**: Strategy overview, algorithmic architecture, and a balanced presentation of performance and risk (highlighting max equity drawdown and stop-out failure rates alongside compounded returns), plus cTrader copy-trading onboarding.
-2. **4D Optimization Risk Explorer (`/explorer/`)**: A client-side 4D visualization tool for cTrader `.optres` exports. Visualizes multi-pass parameter sweeps in interactive 3D with a fourth metric mapped to a color ramp, level-of-detail convex cluster hulls, and in-browser IndexedDB storage.
-3. **Sign-In-Gated Investor Portal (`/investors/`)**: A private participation dashboard backed by **Supabase** (PostgreSQL with Row-Level Security and Supabase Auth). Guarantees that private participation records and investor identities are never exposed in static bundles or accessible without database-level authorization.
+**Content pages** — the "Classical" look: light ground, Cormorant Garamond / Lora
+serif typography, gold accent. Styled by `assets/classical.css`.
+
+1. **Overview (`/`)** — what the strategy is, headline backtest figures, the Indigo / Indigo Trend lineage.
+2. **Philosophy & Risk (`/philosophy/`)** — the risk chain (equity-based sizing → exposure caps → equity circuit breaker) and why balance-drawdown backtests mislead. No entry/exit logic: that is confidential IP.
+3. **Performance (`/performance/`)** — the 2023–2025 H4 backtest and the live forward window, with risk shown next to reward.
+4. **Research (`/research/`)** — the public face of the optimization sweep, linking through to the live explorer.
+5. **Copy Trading (`/copy-trading/`)** — onboarding steps and the embedded cTrader strategy widget.
+
+**Tools** — these keep the dark, data-dense chrome in `assets/app.css`, and share
+only the nav and footer (`assets/chrome.css`) with the pages above.
+
+6. **4D Optimization Risk Explorer (`/explorer/`)**: A client-side 4D visualization tool for cTrader `.optres` exports. Visualizes multi-pass parameter sweeps in interactive 3D with a fourth metric mapped to a color ramp, level-of-detail convex cluster hulls, and in-browser IndexedDB storage.
+7. **Sign-In-Gated Investor Portal (`/investors/`)**: A private participation dashboard backed by **Supabase** (PostgreSQL with Row-Level Security and Supabase Auth). Guarantees that private participation records and investor identities are never exposed in static bundles or accessible without database-level authorization.
 
 ```
 IndigoForge/
 ├── CNAME                    # Custom domain (indigo.gzarruk.com)
 ├── Makefile                 # Development, build, and test automation
-├── index.html               # Public Landing Page (strategy & risk/return)
+├── index.html               # Overview (landing page)
+├── philosophy/index.html    # Philosophy & risk management
+├── performance/index.html   # Backtesting & live forward window
+├── research/index.html      # Optimization sweep → links to /explorer/
+├── copy-trading/index.html  # Onboarding + cTrader strategy widget
 ├── explorer/
 │   └── index.html           # 4D Optimization Risk Surface Explorer
 ├── investors/
 │   └── index.html           # Supabase RLS-Gated Investor Dashboard
 ├── assets/
-│   ├── app.css              # Shared dark-mode design system & typography
+│   ├── classical.css        # Light "Classical" design system (content pages)
+│   ├── chrome.css           # Shared nav + footer, light and dark skins
+│   ├── app.css              # Dark tool chrome (explorer, investor portal)
 │   ├── app.js               # 4D Plotly risk surface engine & controls
 │   ├── investors.js         # Supabase Auth client & private record queries
 │   ├── optres.js            # .optres binary/text parser & hygiene filter

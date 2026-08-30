@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copy Trading — Indigo Forge</title>
+<meta name="description" content="Copy Indigo Forge on cTrader in a few minutes, at your own sizing and on your own equity stop. No management fee, no lock-up.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='92' fill='none' stroke='%23b68235' stroke-width='10'/><text x='100' y='132' text-anchor='middle' font-family='Georgia,serif' font-weight='600' font-size='92' fill='%23201f1d'>IF</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap">
+<link rel="stylesheet" href="../assets/classical.css">
+<link rel="stylesheet" href="../assets/chrome.css">
+</head>
+<body>
+
+<nav class="if-nav">
+  <a class="if-nav__brand" href="../index.html">
+    <svg class="if-nav__mark" viewBox="0 0 200 200" role="img" aria-hidden="true">
+      <circle class="ring" cx="100" cy="100" r="92" fill="none" stroke-width="4"></circle>
+      <text class="glyph" x="100" y="128" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="88">IF</text>
+    </svg>
+    <span>Indigo Forge</span>
+  </a>
+  <ul class="if-nav__links">
+    <li><a href="../index.html">Overview</a></li>
+    <li><a href="../philosophy/">Philosophy &amp; Risk</a></li>
+    <li><a href="../performance/">Performance</a></li>
+    <li><a href="../research/">Research</a></li>
+    <li><a href="./" aria-current="page">Copy Trading</a></li>
+  </ul>
+  <a class="if-nav__portal" href="../investors/">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+    Investor Portal
+  </a>
+</nav>
+
+<main class="wrap">
+
+  <section class="hero">
+    <span class="eyebrow eyebrow-lg" style="margin-bottom:16px">Execution &amp; onboarding</span>
+    <h1 class="hero-title">Copy Indigo Forge in a few minutes</h1>
+    <p class="lede">Trades replicate to your own cTrader account in real time, at your sizing, on your equity stop. No management fee, no lock-up.</p>
+  </section>
+
+  <section class="section">
+    <div class="steps">
+      <div class="step">
+        <div class="step__num">STEP 01</div>
+        <h3>Open a cTrader account</h3>
+        <p>Any regulated broker running the cTrader Copy platform — IC Markets included — will work.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">STEP 02</div>
+        <h3>Find DeuxLatis</h3>
+        <p>Use the invite link below, or search the Copy tab for <b>DeuxLatis</b> / <b>Indigo Forge</b> directly.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">STEP 03</div>
+        <h3>Set sizing &amp; stop</h3>
+        <p>Allocate proportionally and set your own equity stop loss — independent of anything the strategy does.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0 0 48px">
+
+  <section class="section">
+    <span class="eyebrow" style="margin-bottom:18px">Start here</span>
+    <div class="actions" style="margin-bottom:32px">
+      <a href="https://ct-sc.icmarkets.com/copy/strategy/114399?u=DeuxLatis" target="_blank" rel="noopener" class="btn btn-primary">Copy via invite link</a>
+      <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener" class="btn btn-secondary">DeuxLatis on cTrader</a>
+    </div>
+
+    <!-- cTrader's own strategy widget. It renders into #ctrader-plugin-root and
+         pulls live stats, the copy button and its disclosures from the cTrader
+         profile. If the script is blocked or fails, the noscript-style fallback
+         below stays visible and the invite links above still work. -->
+    <div class="panel" style="padding:0;overflow:hidden">
+      <div id="ctrader-widget-fallback" style="padding:32px;text-align:center;background:var(--color-surface)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.6" style="margin:0 auto 12px" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M3 9h18"></path><path d="M8 4v5"></path></svg>
+        <h3 style="font-size:17px;margin:0 0 8px">Live strategy widget</h3>
+        <p style="font-size:13.5px;color:var(--ink-65);max-width:44ch;margin:0 auto">cTrader's strategy widget loads here with live stats and a copy button. If it doesn't appear, your browser is blocking it — the invite links above work regardless.</p>
+      </div>
+      <!-- Height is reserved by script only once the widget actually initializes,
+           so a blocked or failed widget leaves the fallback alone rather than a
+           tall empty box. -->
+      <div id="ctrader-plugin-root" style="width:100%;position:relative"></div>
+    </div>
+  </section>
+
+  <section style="padding-bottom:64px">
+    <div class="panel">
+      <h3>Prefer to just watch first?</h3>
+      <p>Review the <a href="../performance/">backtested performance</a> and the <a href="../philosophy/">risk framework</a> before allocating anything. Participants with a standing arrangement can also request <a href="../investors/">investor access</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="if-footer">
+  <p>Trading CFDs and leveraged products carries a high level of risk and may not be suitable for all investors. Backtested and simulated results have inherent limitations and do not represent actual trading; past performance does not guarantee future results.</p>
+  <div class="if-footer__links">
+    <span>© 2026 Indigo Forge · Traded live as DeuxLatis</span>
+    <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener">cTrader Profile</a>
+    <a href="https://ctrader.com/products/3804" target="_blank" rel="noopener">Indigo</a>
+    <a href="https://ctrader.com/products/3851" target="_blank" rel="noopener">Indigo Trend</a>
+  </div>
+</footer>
+
+<script id="init" type="text/javascript" defer src="https://ct-sc.icmarkets.com/widget.js"></script>
+<script>
+(function () {
+  function start() {
+    try {
+      putInitScript('runPlugin');
+      runPlugin('ctrader-plugin-root', {
+        route: '/esp/114399/?lang=en&theme=light&u=DeuxLatis',
+        appConfig: { strategy: { showStrategyPromotion: true } }
+      });
+      // Only now is the container worth reserving space for.
+      document.getElementById('ctrader-plugin-root').style.minHeight = '520px';
+      document.getElementById('ctrader-widget-fallback').hidden = true;
+    } catch (e) {
+      /* Leave the fallback copy in place; the invite links above still work. */
+    }
+  }
+  // `defer` normally means the script has not run yet, but a cached hit can beat
+  // this handler — so check for the global before waiting on load.
+  if (typeof putInitScript === 'function') start();
+  else document.getElementById('init').addEventListener('load', start);
+})();
+</script>
+
+</body>
+</html>

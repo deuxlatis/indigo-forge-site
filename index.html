@@ -3,207 +3,147 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Indigo Forge — Quantitative cBot for cTrader</title>
-<meta name="description" content="Indigo Forge is a quantitative algorithmic trading system and cBot for cTrader with empirical parameter risk surface modeling and copy trading.">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>&#129482;</text></svg>">
+<title>Indigo Forge — Systematic NOR25 cBot on cTrader</title>
+<meta name="description" content="Indigo Forge is a systematic cBot trading a single instrument — the NOR25 index — live on cTrader under the name DeuxLatis.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='92' fill='none' stroke='%23b68235' stroke-width='10'/><text x='100' y='132' text-anchor='middle' font-family='Georgia,serif' font-weight='600' font-size='92' fill='%23201f1d'>IF</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<link rel="stylesheet" href="assets/app.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/classical.css">
+<link rel="stylesheet" href="assets/chrome.css">
 </head>
 <body>
 
-<nav class="site-nav">
-  <a href="index.html" class="site-brand">
-    <span>INDIGO FORGE</span>
-    <span class="brand-badge">cBot</span>
+<nav class="if-nav">
+  <a class="if-nav__brand" href="index.html">
+    <svg class="if-nav__mark" viewBox="0 0 200 200" role="img" aria-hidden="true">
+      <circle class="ring" cx="100" cy="100" r="92" fill="none" stroke-width="4"></circle>
+      <text class="glyph" x="100" y="128" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="88">IF</text>
+    </svg>
+    <span>Indigo Forge</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="index.html" class="active">Overview</a></li>
-    <li><a href="explorer/index.html">4D Explorer</a></li>
-    <li><a href="investors/index.html">Investor Portal</a></li>
-    <li><a href="https://github.com/gzarruk/indigo-forge" target="_blank" rel="noopener">GitHub</a></li>
+  <ul class="if-nav__links">
+    <li><a href="index.html" aria-current="page">Overview</a></li>
+    <li><a href="philosophy/">Philosophy &amp; Risk</a></li>
+    <li><a href="performance/">Performance</a></li>
+    <li><a href="research/">Research</a></li>
+    <li><a href="copy-trading/">Copy Trading</a></li>
   </ul>
+  <a class="if-nav__portal" href="investors/">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+    Investor Portal
+  </a>
 </nav>
 
-<div class="page-wrapper">
+<main class="wrap">
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-tag"><i></i> Systematic FX & Metals cBot</div>
-    <h1 class="hero-title">Empirical Algorithmic Trading with Explicit Risk Geometry</h1>
-    <p class="hero-subtitle">
-      Indigo Forge is a quantitative cBot engineered for cTrader. Built around high-frequency order execution, dynamic position scaling, and rigorous parameter surface testing to expose the true geometry of tail risk before capital is committed.
-    </p>
-    <div class="hero-actions">
-      <a href="explorer/index.html" class="btn-primary">
-        <span>Launch 4D Risk Explorer</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </a>
-      <a href="#copy-trading" class="btn-secondary">Copy Trading</a>
-      <a href="investors/index.html" class="btn-secondary">Investor Portal</a>
+  <section class="hero hero-home">
+    <span class="eyebrow eyebrow-lg">Systematic · NOR25 Index · cTrader</span>
+    <h1 class="hero-title">One index. One edge, sized honestly.</h1>
+    <p class="lede">Indigo Forge is a systematic cBot trading a single instrument — the NOR25 index — live on cTrader under the name <b>DeuxLatis</b>. One market, studied closely, instead of many markets studied thinly.</p>
+    <div class="actions">
+      <a href="https://ct-sc.icmarkets.com/copy/strategy/114399?u=DeuxLatis" target="_blank" rel="noopener" class="btn btn-primary">Follow on cTrader<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+      <a href="performance/" class="btn btn-secondary">See the numbers</a>
+      <a href="investors/" class="btn btn-ghost">Investor access</a>
     </div>
   </section>
 
-  <!-- Performance vs Risk Matrix Section -->
-  <section class="section" id="performance">
-    <div class="section-header">
-      <div class="section-eyebrow">Multi-Year Baseline Sweep (2023–2025)</div>
-      <h2 class="section-title">Performance & Tail Risk Side-by-Side</h2>
-      <p class="section-desc">
-        Aggressive compounding can turn modest starting capital into exponential peak returns, but only by traversing extreme equity drawdowns. Below, peak returns are presented alongside the true downside risk across the entire 409-pass optimization manifold.
-      </p>
-    </div>
+  <hr class="hr" style="margin:0 0 44px">
 
-    <div class="matrix-grid">
-      <div class="matrix-card reward">
-        <div class="card-label">Peak Compounded Equity</div>
-        <div class="card-val pos">,057,086</div>
-        <div class="card-detail">
-          From <b>,000 start capital</b> in the top evaluation pass over 99,413 executed trades.
-        </div>
+  <section class="section-tight" aria-label="Headline backtest statistics">
+    <div class="stat-row">
+      <div>
+        <p class="stat__val stat__val--accent">6,188%</p>
+        <p class="stat__label">Backtested ROI · 2023–2025</p>
       </div>
-
-      <div class="matrix-card risk">
-        <div class="card-label">Max Equity Drawdown %</div>
-        <div class="card-val neg">95.97%</div>
-        <div class="card-detail">
-          Equivalent to a <b>-,007,752 floating equity drop</b> during the maximum stress period of the top run.
-        </div>
+      <div>
+        <p class="stat__val">6.27</p>
+        <p class="stat__label">Profit factor</p>
       </div>
-
-      <div class="matrix-card reward">
-        <div class="card-label">Max Profit Factor</div>
-        <div class="card-val pos">6.75</div>
-        <div class="card-detail">
-          Surviving runs maintained a median Profit Factor of <b>5.21</b> across stable parameter clusters.
-        </div>
+      <div>
+        <p class="stat__val">865</p>
+        <p class="stat__label">Trades backtested</p>
       </div>
-
-      <div class="matrix-card risk">
-        <div class="card-label">Account Blow-Up Rate</div>
-        <div class="card-val neg">24.0%</div>
-        <div class="card-detail">
-          <b>98 of 409 passes</b> suffered &ge; 100% equity drawdown and stopped out completely.
-        </div>
+      <div>
+        <p class="stat__val">78.5%</p>
+        <p class="stat__label">Win rate</p>
       </div>
     </div>
-
-    <div class="callout risk-callout">
-      <b>Risk Disclosure on Compounding Runs:</b> In compounding strategies, log(equity), log(drawdown $), and drawdown % correlate 0.98&ndash;1.00 with each other (principal component analysis captures 98.6% of the variance on a single dimension). Peak return is fundamentally coupled with peak drawdown. Indigo Forge provides full 4D visibility so you can select defensive operating points inside a controlled drawdown budget.
-    </div>
+    <p class="note" style="margin-top:20px">H4 backtest, 01/01/2023–31/12/2025, $2,000 starting capital. Simulated results — see <a href="performance/">Performance</a> for the full breakdown and its limitations.</p>
   </section>
 
-  <!-- Deep Dive Analysis -->
-  <section class="section" id="methodology">
-    <div class="section-header">
-      <div class="section-eyebrow">Quantitative Mechanics</div>
-      <h2 class="section-title">Why Standard Backtests Mislead</h2>
-      <p class="section-desc">
-        Most commercial trading bots showcase cherry-picked closed-balance curves. Indigo Forge evaluates true continuous mark-to-market equity.
-      </p>
-    </div>
+  <hr class="hr" style="margin:0 0 48px">
 
-    <div class="feature-grid">
-      <div class="feature-card">
-        <h3>1. Equity vs. Balance Drawdown</h3>
-        <p>
-          Closed-trade balance graphs conceal intra-trade floating losses. If an algorithm holds adverse positions before price recovers, balance drawdown appears mild while equity drawdown may approach ruin. Indigo Forge measures every tick's floating equity.
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <h3>2. Temporal Separation of Drawdown Maxima</h3>
-        <p>
-          Max Drawdown % and Max Drawdown $ describe completely different moments on a compounding curve. The percentage peak occurs during early, low-capital sizing; the dollar peak occurs at high capital. Neither alone describes typical risk.
-        </p>
-      </div>
-
-      <div class="feature-card">
-        <h3>3. Scale-Free Recovery Factor</h3>
-        <p>
-          Recovery factor (Net Profit &divide; Max Drawdown $) provides the only scale-free metric in the optimization set. It allows objective ranking of parameter efficiency within any fixed capital allocation.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4D Explorer Interactive Callout -->
   <section class="section">
-    <div class="section-header">
-      <div class="section-eyebrow">Empirical Validation</div>
-      <h2 class="section-title">Interactive 4D Optimization Explorer</h2>
-      <p class="section-desc">
-        Inspect the entire 409-pass parameter cloud directly in your browser. Rotate across 3D axes, map any fourth metric to color, and isolate robust clusters with k-means hulls.
-      </p>
-    </div>
-
-    <div style="background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 32px; text-align: center;">
-      <h3 style="font-family: var(--cond); font-size: 20px; margin: 0 0 12px;">Explore the Full Parameter Surface</h3>
-      <p style="color: var(--ink-2); max-width: 600px; margin: 0 auto 24px;">
-        Switch between Profit Factor, Win Rate, Max Drawdown %, and Recovery Factor across any coordinate axis. Filter stop-outs and duplicates in real time.
-      </p>
-      <a href="explorer/index.html" class="btn-primary" style="display: inline-flex;">
-        <span>Open 4D Risk Explorer</span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- Copy Trading Guide -->
-  <section class="section" id="copy-trading">
-    <div class="section-header">
-      <div class="section-eyebrow">Execution & Onboarding</div>
-      <h2 class="section-title">cTrader Copy Strategy</h2>
-      <p class="section-desc">
-        Follow Indigo Forge live on institutional-grade cTrader brokerages with transparent equity replication and zero management fees.
-      </p>
-    </div>
-
-    <div class="copy-steps">
-      <div class="copy-step">
-        <div class="step-num">STEP 01</div>
-        <h4>Create a cTrader Account</h4>
-        <p>Open an account with a regulated cTrader broker (e.g., IC Markets, Pepperstone, Spotware) and fund your live balance.</p>
+    <span class="eyebrow">What it does differently</span>
+    <div class="cols-3">
+      <div>
+        <h3>Single instrument, by design</h3>
+        <p>Indigo Forge trades only the NOR25 index. No basket of pairs to spread attention across — every rule is tuned to one market's own volatility rhythm.</p>
       </div>
-
-      <div class="copy-step">
-        <div class="step-num">STEP 02</div>
-        <h4>Search for Indigo Forge</h4>
-        <p>Navigate to the cTrader Copy tab in your desktop, web, or mobile app and search for <b>Indigo Forge</b>.</p>
+      <div>
+        <h3>Engineered risk, not hope</h3>
+        <p>Position sizing and exposure caps are set before a trade opens, not adjusted after. See the <a href="philosophy/">risk framework</a> behind the numbers.</p>
       </div>
-
-      <div class="copy-step">
-        <div class="step-num">STEP 03</div>
-        <h4>Set Copy Sizing & Stop Loss</h4>
-        <p>Allocate capital proportionally and set an equity stop loss to enforce your personal risk budget independently.</p>
+      <div>
+        <h3>Tested across regimes</h3>
+        <p>Three continuous years of H4 data, then a live forward-tracked window. Explore the full 409-pass parameter sweep in <a href="research/">Research</a>.</p>
       </div>
     </div>
   </section>
 
-  <!-- Regulatory & Risk Disclaimer -->
-  <div class="disclaimer-box">
-    <div class="disclaimer-title">Important Risk Disclaimer & Regulatory Notice</div>
-    <p>
-      Trading foreign exchange, CFDs, and leveraged commodities involves substantial risk of loss and is not suitable for all investors. High degree of leverage can work against you as well as for you. Before deciding to trade or copy trade, carefully consider your investment objectives, level of experience, and risk tolerance.
-    </p>
-    <p>
-      Hypothetical or simulated performance results have certain inherent limitations. Unlike an actual performance record, simulated results do not represent actual trading. No representation is being made that any account will or is likely to achieve profits or losses similar to those shown. Past performance is no guarantee of future results.
-    </p>
-  </div>
+  <hr class="hr" style="margin:0 0 48px">
 
-  <!-- Footer -->
-  <footer class="site-footer">
+  <section class="section split">
     <div>
-      &copy; 2026 <b>Indigo Forge</b> &middot; Developed by Gustavo Zarruk &middot; MIT License
+      <span class="eyebrow" style="margin-bottom:14px">Lineage</span>
+      <h2>Built on two live cTrader strategies</h2>
+      <p>Indigo Forge is the advanced evolution of two products already running on the cTrader store — Indigo and Indigo Trend. Their entry logic and market structure work carried forward; risk management and NOR25 specialization were rebuilt on top of them.</p>
+      <div class="actions" style="gap:12px">
+        <a href="https://ctrader.com/products/3804" target="_blank" rel="noopener" class="btn btn-secondary">Indigo on cTrader Store</a>
+        <a href="https://ctrader.com/products/3851" target="_blank" rel="noopener" class="btn btn-secondary">Indigo Trend on cTrader Store</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="explorer/index.html">4D Explorer</a>
-      <a href="investors/index.html">Investors</a>
-      <a href="https://github.com/gzarruk/indigo-forge" target="_blank" rel="noopener">GitHub Repository</a>
-    </div>
-  </footer>
+    <figure class="seal plate">
+      <svg viewBox="0 0 200 200" role="img" aria-label="Indigo Forge mark">
+        <circle cx="100" cy="100" r="92" fill="none" stroke="var(--color-accent)" stroke-width="1.5"></circle>
+        <circle cx="100" cy="100" r="80" fill="none" stroke="var(--color-divider)" stroke-width="1"></circle>
+        <line x1="100" y1="24" x2="100" y2="34" stroke="var(--color-accent)" stroke-width="1.5"></line>
+        <line x1="100" y1="166" x2="100" y2="176" stroke="var(--color-accent)" stroke-width="1.5"></line>
+        <text x="100" y="122" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="68" fill="var(--color-text)">IF</text>
+      </svg>
+    </figure>
+  </section>
 
-</div>
+  <hr class="hr" style="margin:0 0 48px">
+
+  <section class="section">
+    <blockquote class="pullquote">“I trade Indigo Forge live, on my own account, under DeuxLatis. Nothing published here that I wouldn't put my own capital behind.”</blockquote>
+    <p class="pullquote-by">— DeuxLatis</p>
+  </section>
+
+  <hr class="hr" style="margin:0 0 40px">
+
+  <section style="padding-bottom:64px">
+    <h3 style="font-size:24px;font-weight:400;margin:0 0 12px">Follow it live</h3>
+    <p style="font-size:15.5px;line-height:1.6;color:var(--ink-78);max-width:56ch;margin:0 0 24px">Copy Indigo Forge on cTrader in a few minutes, with your own sizing and equity stop. Full walkthrough on the <a href="copy-trading/">copy-trading page</a>.</p>
+    <div class="actions">
+      <a href="https://ct-sc.icmarkets.com/copy/strategy/114399?u=DeuxLatis" target="_blank" rel="noopener" class="btn btn-primary">Copy on cTrader</a>
+      <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener" class="btn btn-secondary">View cTrader Profile</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="if-footer">
+  <p>Trading CFDs and leveraged products carries a high level of risk and may not be suitable for all investors. Backtested and simulated results have inherent limitations and do not represent actual trading; past performance does not guarantee future results.</p>
+  <div class="if-footer__links">
+    <span>© 2026 Indigo Forge · Traded live as DeuxLatis</span>
+    <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener">cTrader Profile</a>
+    <a href="https://ctrader.com/products/3804" target="_blank" rel="noopener">Indigo</a>
+    <a href="https://ctrader.com/products/3851" target="_blank" rel="noopener">Indigo Trend</a>
+  </div>
+</footer>
 
 </body>
 </html>
