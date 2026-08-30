@@ -1,12 +1,81 @@
 /* ==========================================================================
    Indigo Forge — "Classical" design system + content-page patterns.
-   Light, serif, gold-accented. Used by the five public content pages
+   Serif, gold-accented. Used by the five public content pages
    (Overview, Philosophy, Performance, Research, Copy Trading).
+   Two themes: the dark default shares its palette with the research
+   explorer (assets/app.css); `html[data-theme="light"]` restores the
+   original light Classical look. assets/theme.js flips the attribute.
    The 4D explorer and the investor portal stay on app.css (dark tool chrome)
    and share only assets/chrome.css with these pages.
    ========================================================================== */
 
 :root {
+  --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-heading-weight: 600;
+  --font-body: "Lora", Georgia, "Times New Roman", serif;
+
+  --space-1: 4.6px;
+  --space-2: 9.2px;
+  --space-3: 13.8px;
+  --space-4: 18.4px;
+  --space-6: 27.6px;
+  --space-8: 36.8px;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 7px;
+
+  /* Text tints used all over the content pages. Derived from the themed
+     text color, so they follow whichever palette is active. */
+  --ink-78: color-mix(in srgb, var(--color-text) 78%, transparent);
+  --ink-65: color-mix(in srgb, var(--color-text) 65%, transparent);
+  --ink-60: color-mix(in srgb, var(--color-text) 60%, transparent);
+  --ink-55: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+
+/* — dark theme (default) — the research explorer's palette (app.css). */
+:root {
+  color-scheme: dark;
+
+  --color-bg: #0e1012;
+  --color-surface: #14171a;
+  --color-text: #e9eef2;
+  --color-accent: #f0a52a;
+  --color-accent-2: #e1ad66;
+  --color-divider: color-mix(in srgb, #e9eef2 12%, transparent);
+
+  /* Tonal ramps keep their semantics — 100 sits nearest the background,
+     900 nearest the text — so the steps reverse against the dark ground.
+     Neutrals follow app.css's cool panel/ink greys. */
+  --color-neutral-100: #14171a;
+  --color-neutral-200: #1a1e22;
+  --color-neutral-300: #22272c;
+  --color-neutral-400: #2f353b;
+  --color-neutral-500: #4b535a;
+  --color-neutral-600: #6e777e;
+  --color-neutral-700: #9aa4ac;
+  --color-neutral-800: #c6cdd3;
+  --color-neutral-900: #e9eef2;
+
+  --color-accent-100: #3a270d;
+  --color-accent-200: #5a3b0a;
+  --color-accent-300: #7d5411;
+  --color-accent-400: #a06f24;
+  --color-accent-500: #c28d41;
+  --color-accent-600: #e1ad66;
+  --color-accent-700: #facb8d;
+  --color-accent-800: #ffe3bf;
+  --color-accent-900: #fff3e4;
+
+  --color-critical: #d03b3b;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 3px 10px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.65);
+}
+
+/* — light theme — the original Classical palette. */
+:root[data-theme="light"] {
   color-scheme: light;
 
   --color-bg: #f3f2f2;
@@ -40,30 +109,9 @@
 
   --color-critical: #a83b3b;
 
-  --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --font-heading-weight: 600;
-  --font-body: "Lora", Georgia, "Times New Roman", serif;
-
-  --space-1: 4.6px;
-  --space-2: 9.2px;
-  --space-3: 13.8px;
-  --space-4: 18.4px;
-  --space-6: 27.6px;
-  --space-8: 36.8px;
-
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 7px;
-
   --shadow-sm: 0 1px 2px color-mix(in srgb, #2d2b2b 14%, transparent);
   --shadow-md: 0 3px 10px color-mix(in srgb, #2d2b2b 16%, transparent);
   --shadow-lg: 0 12px 32px color-mix(in srgb, #2d2b2b 22%, transparent);
-
-  /* Text tints used all over the content pages. */
-  --ink-78: color-mix(in srgb, var(--color-text) 78%, transparent);
-  --ink-65: color-mix(in srgb, var(--color-text) 65%, transparent);
-  --ink-60: color-mix(in srgb, var(--color-text) 60%, transparent);
-  --ink-55: color-mix(in srgb, var(--color-text) 55%, transparent);
 }
 
 /* ==========================================================================
@@ -180,9 +228,12 @@ figure { margin: 0; }
 .table .val { color: var(--color-accent-700); }
 
 .plate {
-  filter: sepia(0.22) saturate(0.82) contrast(1.05);
   border: 6px solid var(--color-surface);
   outline: 1px solid var(--color-divider);
+}
+/* The aged-print wash only suits the light paper ground. */
+:root[data-theme="light"] .plate {
+  filter: sepia(0.22) saturate(0.82) contrast(1.05);
 }
 
 /* ==========================================================================

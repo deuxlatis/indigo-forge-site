@@ -1,20 +1,31 @@
 /* ==========================================================================
    Indigo Forge — shared site chrome (nav + footer)
-   Loaded by BOTH the light Classical content pages and the dark tool pages
+   Loaded by BOTH the themable Classical content pages and the dark tool pages
    (explorer, investor portal), so navigation is identical everywhere.
    Every selector is `if-`-prefixed and nothing here touches body/h1/a, so it
    composes with classical.css and app.css without collisions.
-   The `.if-chrome-dark` modifier reskins the same markup for the dark tools.
+   Dark is the site-wide default; `html[data-theme="light"]` (set by
+   assets/theme.js on the content pages) reskins the chrome light.
+   The `.if-chrome-dark` modifier pins the dark skin regardless of theme —
+   the tool pages use it because they have no light mode at all.
    ========================================================================== */
 
 .if-nav,
 .if-footer {
+  --if-chrome-bg: #14171a;
+  --if-chrome-ink: #e9eef2;
+  --if-chrome-accent: #f0a52a;
+  --if-chrome-line: rgba(233, 238, 242, 0.10);
+  --if-chrome-heading: "Cormorant Garamond", Georgia, serif;
+  --if-chrome-body: "Lora", Georgia, serif;
+}
+
+:root[data-theme="light"] .if-nav:not(.if-chrome-dark),
+:root[data-theme="light"] .if-footer:not(.if-chrome-dark) {
   --if-chrome-bg: #f3f2f2;
   --if-chrome-ink: #201f1d;
   --if-chrome-accent: #b68235;
   --if-chrome-line: color-mix(in srgb, #201f1d 16%, transparent);
-  --if-chrome-heading: "Cormorant Garamond", Georgia, serif;
-  --if-chrome-body: "Lora", Georgia, serif;
 }
 
 .if-nav.if-chrome-dark,
@@ -101,7 +112,30 @@
 }
 .if-nav__lang:hover { color: var(--if-chrome-accent); border-color: var(--if-chrome-accent); }
 
+/* Theme toggle — sun shown while dark (click for light), moon while light. */
+.if-nav__theme {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 1px solid var(--if-chrome-line);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.if-nav__theme:hover { color: var(--if-chrome-accent); border-color: var(--if-chrome-accent); }
+.if-nav__theme svg { display: block; flex: none; }
+.if-nav__theme .moon { display: none; }
+:root[data-theme="light"] .if-nav__theme .sun { display: none; }
+:root[data-theme="light"] .if-nav__theme .moon { display: block; }
+
 .if-nav a:focus-visible,
+.if-nav__theme:focus-visible,
 .if-footer a:focus-visible {
   outline: 2px solid var(--if-chrome-accent);
   outline-offset: 2px;

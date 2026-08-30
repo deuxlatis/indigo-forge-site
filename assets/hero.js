@@ -11,8 +11,25 @@
   if (!canvas || !canvas.getContext) return;
   var ctx = canvas.getContext("2d");
 
-  var INK = "32, 31, 29"; /* --color-text */
-  var GOLD = "182, 130, 53"; /* --color-accent */
+  /* Ink and gold track the active theme; the fallbacks are the dark palette. */
+  var INK = "233, 238, 242"; /* --color-text */
+  var GOLD = "240, 165, 42"; /* --color-accent */
+
+  function hexToRgb(raw) {
+    var m = /^#([0-9a-f]{6})$/i.exec(raw.trim());
+    if (!m) return null;
+    return (
+      parseInt(m[1].slice(0, 2), 16) + ", " +
+      parseInt(m[1].slice(2, 4), 16) + ", " +
+      parseInt(m[1].slice(4, 6), 16)
+    );
+  }
+
+  function readThemeColors() {
+    var styles = getComputedStyle(document.documentElement);
+    INK = hexToRgb(styles.getPropertyValue("--color-text")) || INK;
+    GOLD = hexToRgb(styles.getPropertyValue("--color-accent")) || GOLD;
+  }
 
   var PASSES = 409; /* one point per optimization pass */
   var TILT = 0.55; /* camera pitch, radians */
@@ -166,6 +183,14 @@
   };
   if (reduceMotion.addEventListener) reduceMotion.addEventListener("change", onMotionPref);
 
+  if (typeof MutationObserver !== "undefined") {
+    new MutationObserver(function () {
+      readThemeColors();
+      draw(yaw);
+    }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  }
+
+  readThemeColors();
   fit();
   draw(yaw);
   start();
