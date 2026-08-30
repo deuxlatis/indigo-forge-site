@@ -4,20 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research — 4D Optimization Explorer — Indigo Forge</title>
-<meta name="description" content="Every parameter pass from the 2023-2025 Indigo Forge sweep, plotted in your browser. Nothing is uploaded.">
+<meta name="description" content="Every parameter pass from the 2023-2025 Indigo Forge sweep, plotted in interactive 3D in your browser. Reads your own cTrader .optres exports locally — nothing is uploaded.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='92' fill='none' stroke='%23b68235' stroke-width='10'/><text x='100' y='132' text-anchor='middle' font-family='Georgia,serif' font-weight='600' font-size='92' fill='%23201f1d'>IF</text></svg>">
 <link rel="alternate" hreflang="en" href="https://indigo.gzarruk.com/research/">
 <link rel="alternate" hreflang="es" href="https://indigo.gzarruk.com/es/research/">
 <link rel="alternate" hreflang="x-default" href="https://indigo.gzarruk.com/research/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap">
-<link rel="stylesheet" href="../assets/classical.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Lora:wght@400;600&display=swap">
+<link rel="stylesheet" href="../assets/app.css">
 <link rel="stylesheet" href="../assets/chrome.css">
 </head>
 <body>
 
-<nav class="if-nav">
+<nav class="if-nav if-chrome-dark">
   <a class="if-nav__brand" href="../index.html">
     <svg class="if-nav__mark" viewBox="0 0 200 200" role="img" aria-hidden="true">
       <circle class="ring" cx="100" cy="100" r="92" fill="none" stroke-width="4"></circle>
@@ -39,133 +38,163 @@
   <a class="if-nav__lang" href="../es/research/" hreflang="es" lang="es" title="Versión en español">ES</a>
 </nav>
 
-<main class="wrap">
-
-  <section class="hero">
-    <span class="eyebrow eyebrow-lg" style="margin-bottom:16px">Research tool · public</span>
-    <h1 class="hero-title" style="max-width:22ch">4D optimization explorer</h1>
-    <p class="lede" style="max-width:60ch">Every parameter pass from the 2023&ndash;2025 sweep, plotted in your browser &mdash; nothing uploaded. Pick any two metrics for the axes and a third for color, and see where the strategy&rsquo;s edge actually sits.</p>
-  </section>
-
-  <section style="padding-bottom:20px">
-    <div class="channels" style="margin-bottom:24px">
-      <div>
-        <div class="channels__label">X axis</div>
-        <div class="tag tag-outline">Max equity drawdown %</div>
-      </div>
-      <div>
-        <div class="channels__label">Y axis</div>
-        <div class="tag tag-outline">Profit factor</div>
-      </div>
-      <div>
-        <div class="channels__label">Color</div>
-        <div class="tag tag-outline">Win rate</div>
-      </div>
-      <div class="channels__hygiene">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
-        Stop-outs filtered &middot; duplicates removed
-      </div>
+<div class="app">
+  <header class="head">
+    <div class="brand">
+      <h1 id="run-title">Optimization Risk Surface</h1>
+      <p id="run-sub">Loading…</p>
     </div>
-
-    <div class="figure">
-      <svg viewBox="0 0 820 420" role="img" aria-label="Scatter plot of optimization passes: maximum equity drawdown percent on the horizontal axis against profit factor on the vertical axis. Most surviving passes cluster below 50 percent drawdown at profit factors between 4 and 7; stopped-out passes sit at 100 percent drawdown with profit factors near 2.">
-        <line x1="60" y1="20" x2="60" y2="380" stroke="var(--color-divider)" stroke-width="1"></line>
-        <line x1="60" y1="380" x2="800" y2="380" stroke="var(--color-divider)" stroke-width="1"></line>
-      <circle cx="671.64" cy="110.51" r="4.43" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="140.86" cy="36.46" r="5.31" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="378.00" cy="99.71" r="4.78" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="284.89" cy="132.11" r="4.77" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="733.60" cy="282.29" r="4.52" fill="#a83b3b" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="318.73" cy="97.14" r="4.85" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="267.40" cy="130.06" r="4.96" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="732.73" cy="276.11" r="4.51" fill="#a83b3b" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="93.03" cy="190.23" r="4.81" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="215.47" cy="132.63" r="4.81" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="741.47" cy="285.37" r="4.43" fill="#a83b3b" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="378.67" cy="97.66" r="4.79" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="214.12" cy="95.09" r="5.19" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="329.83" cy="62.69" r="4.57" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="279.65" cy="93.54" r="5.07" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="154.45" cy="117.71" r="5.22" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="242.24" cy="103.83" r="5.13" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="105.88" cy="185.60" r="4.81" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="151.42" cy="128.00" r="5.02" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="246.82" cy="97.14" r="5.15" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="153.37" cy="123.37" r="5.25" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="277.76" cy="131.09" r="4.82" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="126.80" cy="132.63" r="5.02" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="209.55" cy="38.00" r="5.27" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="761.65" cy="273.03" r="4.62" fill="#a83b3b" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="240.83" cy="42.63" r="5.05" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="176.79" cy="129.03" r="4.95" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="262.56" cy="93.03" r="5.15" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="193.67" cy="107.43" r="5.16" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="186.81" cy="184.57" r="4.37" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="793.07" cy="277.14" r="4.57" fill="#a83b3b" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="168.71" cy="93.54" r="5.20" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="135.41" cy="181.49" r="4.81" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="733.67" cy="288.97" r="4.27" fill="#a83b3b" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="88.86" cy="191.77" r="4.81" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="186.07" cy="119.77" r="5.22" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="164.88" cy="128.51" r="5.02" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="137.63" cy="181.49" r="4.81" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="208.54" cy="105.37" r="5.16" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="217.15" cy="39.54" r="5.10" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="214.79" cy="99.20" r="5.17" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="159.43" cy="35.94" r="5.31" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="220.92" cy="133.66" r="4.77" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="278.70" cy="50.34" r="4.80" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="196.77" cy="99.20" r="5.18" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="214.12" cy="96.63" r="5.18" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="115.30" cy="132.63" r="5.02" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="192.39" cy="94.57" r="5.20" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="177.26" cy="32.86" r="5.31" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-      <circle cx="223.74" cy="104.34" r="5.13" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-        <text x="430" y="410" text-anchor="middle" font-size="12" fill="var(--color-text)" opacity="0.55">Max equity drawdown %</text>
-        <text x="20" y="200" text-anchor="middle" font-size="12" fill="var(--color-text)" opacity="0.55" transform="rotate(-90 20 200)">Profit factor</text>
-      </svg>
+    <div class="tiles">
+      <div class="tile"><div class="k">Passes shown</div><div class="v" id="t-n">—</div></div>
+      <div class="tile"><div class="k">Best equity</div><div class="v" id="t-eq">—</div></div>
+      <div class="tile"><div class="k">Median eq. drawdown</div><div class="v" id="t-dd">—</div></div>
+      <div class="tile"><div class="k">Best profit factor</div><div class="v" id="t-pf">—</div></div>
     </div>
-    <p class="note" style="margin-top:12px">Sample of the 2023&ndash;2025 sweep, positioned from the actual pass results. Red-tinted markers are stopped-out passes (&ge;100% equity drawdown), shown here rather than hidden.</p>
-  </section>
+  </header>
 
-  <hr class="hr" style="margin:24px 0 44px">
+  <div class="split">
+    <aside class="rail">
 
-  <section style="padding-bottom:16px">
-    <div class="card-row">
-      <div class="card"><div class="card-kicker">Passes evaluated</div><div class="card-title" style="font-size:24px">409</div></div>
-      <div class="card"><div class="card-kicker">Stopped out</div><div class="card-title" style="font-size:24px">98</div></div>
-      <div class="card"><div class="card-kicker">Duplicates removed</div><div class="card-title" style="font-size:24px">33</div></div>
-      <div class="card"><div class="card-kicker">Best profit factor</div><div class="card-title" style="font-size:24px;color:var(--color-accent)">6.75</div></div>
-    </div>
-  </section>
+      <section class="sec">
+        <p class="eyebrow">Report <span id="rep-count"></span></p>
+        <div class="chan">
+          <label for="rep-pick">Showing</label><select id="rep-pick"></select>
+        </div>
+        <label class="btn filebtn" for="rep-file" tabindex="0" role="button">Add .optres files
+          <input type="file" id="rep-file" accept=".optres,.json,application/json" multiple>
+        </label>
+        <button class="btn" id="rep-del" hidden>Remove from this browser</button>
+        <p class="note" id="rep-note">Drop a <b>.optres</b> file anywhere on this page. It is parsed here in your browser and stored only on this device — the page has no server to send it to.</p>
+      </section>
 
-  <section style="padding:44px 0 20px">
-    <div class="panel" style="text-align:center;padding:32px 28px">
-      <h3 style="font-size:22px;font-weight:400;margin:0 0 10px">Open the live explorer</h3>
-      <p style="max-width:56ch;margin:0 auto 22px">The chart above is a still frame. The explorer itself plots all 409 passes in interactive 3D, maps a fourth metric to a color ramp, and groups them with k-means cluster hulls &mdash; and reads your own <code>.optres</code> exports entirely on your machine.</p>
-      <a href="../explorer/" class="btn btn-primary">Launch 4D explorer<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
-    </div>
-  </section>
+      <section class="sec">
+        <p class="eyebrow">Data hygiene <span id="hy-count">—</span></p>
+        <label class="sw">
+          <input type="checkbox" id="ex-so" checked><span class="box"></span>
+          <span class="lab">Drop stop-outs<em id="so-note">—</em></span>
+        </label>
+        <label class="sw">
+          <input type="checkbox" id="ex-dup" checked><span class="box"></span>
+          <span class="lab">Drop repeat evaluations<em id="dup-note">—</em></span>
+        </label>
+        <p class="note" id="hy-note"></p>
+      </section>
 
-  <section style="padding:24px 0 64px">
-    <div class="panel">
-      <h3>Genetic search, not grid search</h3>
-      <p>409 passes across risk-sizing parameters (max open positions, balance-percent sizing), optimized on 2023&ndash;2025 M1 data with a $2,000 starting balance and realistic commission and spread. Parameter values themselves are not disclosed.</p>
-      <p>Reads any exported <code>.optres</code> file locally in your browser &mdash; nothing is uploaded to a server. Read the reasoning behind these metrics on the <a href="../philosophy/">methodology page</a>.</p>
-    </div>
-  </section>
+      <section class="sec">
+        <p class="eyebrow">Filter</p>
+        <div class="fld">
+          <div class="top"><b>Profit factor at least</b><var id="v-pf">—</var></div>
+          <input type="range" id="f-pf" min="0" max="10" step="0.05" value="0">
+        </div>
+        <div class="fld">
+          <div class="top"><b>Equity drawdown at most</b><var id="v-dd">—</var></div>
+          <input type="range" id="f-dd" min="0" max="120" step="1" value="120">
+        </div>
+        <div class="fld">
+          <div class="top"><b>Final equity at least</b><var id="v-eq">—</var></div>
+          <input type="range" id="f-eq" min="2" max="8" step="0.05" value="2">
+        </div>
+      </section>
 
-</main>
+      <section class="sec">
+        <p class="eyebrow">Channels</p>
+        <div class="chan">
+          <label for="ax-x">X axis</label><select id="ax-x"></select>
+          <label for="ax-y">Y axis</label><select id="ax-y"></select>
+          <label for="ax-z">Z axis</label><select id="ax-z"></select>
+          <label for="ax-c">Colour</label><select id="ax-c"></select>
+        </div>
+        <p class="note">Clusters are computed on whichever four metrics sit here, so it stays a 4D grouping. Choosing a metric that's already in use swaps the two channels.</p>
+      </section>
 
-<footer class="if-footer">
+      <section class="sec">
+        <p class="eyebrow">Detail level</p>
+        <div class="seg" role="group" aria-label="Detail level">
+          <button id="m-auto" aria-pressed="true">Auto</button>
+          <button id="m-clu" aria-pressed="false">Clusters</button>
+          <button id="m-pts" aria-pressed="false">Points</button>
+        </div>
+        <label class="sw">
+          <input type="checkbox" id="hulls" checked><span class="box"></span>
+          <span class="lab">Cluster hulls<em>Shaded volumes sit in front of the points and block hovering — turn them off to reach every pass</em></span>
+        </label>
+        <p class="note">On <b>Auto</b>, zooming past halfway dissolves the hulls and renders every pass individually. Drag to orbit, scroll to zoom, right-drag to pan.</p>
+        <button class="btn" id="reset">Reset view</button>
+      </section>
+
+      <section class="sec">
+        <p class="eyebrow">Clusters <span id="k-val">4</span></p>
+        <input type="range" id="f-k" min="2" max="6" step="1" value="4" aria-label="Number of clusters">
+        <div class="clist" id="clist"></div>
+        <p class="note">k-means over the four mapped metrics, each standardized before distances are measured.</p>
+      </section>
+
+      <section class="sec">
+        <p class="eyebrow">About</p>
+        <p class="note">The default report is the 2023–2025 Indigo Forge sweep. Everything runs client-side — your optimization files never leave this machine.
+        The reasoning behind these metrics is on the <a href="../philosophy/">methodology page</a>; source and issues on <a href="https://github.com/gzarruk/indigo-forge" id="repo-link" target="_blank" rel="noopener">GitHub</a>.</p>
+      </section>
+
+    </aside>
+
+    <main class="stage">
+      <div class="lod" id="lod"><i></i><span id="lod-txt">Cluster view</span></div>
+      <div id="plot"></div>
+    </main>
+
+    <aside class="keyrail">
+      <section class="sec key">
+        <div>
+          <p class="eyebrow" id="key-title">Final equity </p>
+          <div class="ramp">
+            <div class="bar"></div>
+            <div class="ticks" id="key-ticks"></div>
+          </div>
+          <p class="xkey" id="xkey" hidden><i></i>stopped out</p>
+        </div>
+        <div class="readout" id="readout">
+          <div class="rh"><b>No pass selected</b><span>Readout</span></div>
+          <p class="empty">Hover a point for its numbers; click to pin it.</p>
+        </div>
+      </section>
+    </aside>
+  </div>
+</div>
+
+<div class="drop" id="drop" hidden><div>Drop .optres files to add them</div></div>
+<div class="toast" id="toast" hidden></div>
+
+<footer class="if-footer if-chrome-dark">
   <p>Trading CFDs and leveraged products carries a high level of risk and may not be suitable for all investors. Backtested and simulated results have inherent limitations and do not represent actual trading; past performance does not guarantee future results.</p>
   <div class="if-footer__links">
-    <span>&copy; 2026 Indigo Forge &middot; Traded live as DeuxLatis</span>
+    <span>© 2026 Indigo Forge · Traded live as DeuxLatis</span>
+    <a href="../philosophy/">Methodology</a>
     <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener">cTrader Profile</a>
     <a href="https://ctrader.com/products/3804" target="_blank" rel="noopener">Indigo</a>
     <a href="https://ctrader.com/products/3851" target="_blank" rel="noopener">Indigo Trend</a>
   </div>
 </footer>
 
+<script>window.__DATA_BASE = "../data/";</script>
+<script src="../assets/optres.js"></script>
+<script src="../assets/store.js"></script>
+<script src="../assets/app.js"></script>
+<script>
+(function () {
+  var srcs = [
+    "https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.0/plotly.min.js",
+    "https://cdn.jsdelivr.net/npm/plotly.js-dist-min@2.35.2/plotly.min.js"
+  ];
+  function go(i) {
+    if (window.Plotly || i >= srcs.length) { window.__initForge(); return; }
+    var s = document.createElement("script");
+    s.src = srcs[i];
+    s.onload = function () { go(i + 1); };
+    s.onerror = function () { go(i + 1); };
+    document.body.appendChild(s);
+  }
+  go(0);
+})();
+</script>
 </body>
 </html>

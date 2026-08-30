@@ -66,7 +66,7 @@ def main():
             print("  ⚡ INDIGO FORGE — Local Development Server")
             print("=" * 66)
             print(f"  • Landing Page:      {base_url}/")
-            print(f"  • 4D Risk Explorer:  {base_url}/explorer/")
+            print(f"  • 4D Risk Explorer:  {base_url}/research/")
             print(f"  • Investor Portal:   {base_url}/investors/")
             print(f"  • Bundled Artifact:  {base_url}/dist/artifact.html")
             print("-" * 66)

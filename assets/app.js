@@ -1260,7 +1260,9 @@ window.__initForge = function () {
         }),
       );
     }
-    return fetch("data/manifest.json")
+    // pages live at different depths, so each one declares where data/ sits
+    var base = window.__DATA_BASE || "data/";
+    return fetch(base + "manifest.json")
       .then(function (r) {
         return r.ok ? r.json() : [];
       })
@@ -1272,7 +1274,7 @@ window.__initForge = function () {
           return {
             key: "bundled:" + it.file,
             label: it.name,
-            file: "data/" + it.file,
+            file: base + it.file,
             saved: false,
           };
         });
