@@ -30,6 +30,7 @@ check:
 	@node -c assets/optres.js && echo "  ✓ assets/optres.js syntax OK"
 	@node -c assets/store.js && echo "  ✓ assets/store.js syntax OK"
 	@node -c assets/app.js && echo "  ✓ assets/app.js syntax OK"
+	@node -c assets/hero.js && echo "  ✓ assets/hero.js syntax OK"
 	@node -c assets/investors.js && echo "  ✓ assets/investors.js syntax OK"
 	@echo "All checks passed!"
 
