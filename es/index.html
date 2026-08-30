@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indigo Forge — cBot sistemático del NOR25 en cTrader</title>
+<meta name="description" content="Indigo Forge es un cBot sistemático que opera un solo instrumento — el índice NOR25 — en vivo en cTrader bajo el nombre DeuxLatis.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='92' fill='none' stroke='%23b68235' stroke-width='10'/><text x='100' y='132' text-anchor='middle' font-family='Georgia,serif' font-weight='600' font-size='92' fill='%23201f1d'>IF</text></svg>">
+<link rel="alternate" hreflang="en" href="https://indigo.gzarruk.com/">
+<link rel="alternate" hreflang="es" href="https://indigo.gzarruk.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://indigo.gzarruk.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap">
+<link rel="stylesheet" href="../assets/classical.css">
+<link rel="stylesheet" href="../assets/chrome.css">
+</head>
+<body>
+
+<nav class="if-nav">
+  <a class="if-nav__brand" href="index.html">
+    <svg class="if-nav__mark" viewBox="0 0 200 200" role="img" aria-hidden="true">
+      <circle class="ring" cx="100" cy="100" r="92" fill="none" stroke-width="4"></circle>
+      <text class="glyph" x="100" y="128" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="88">IF</text>
+    </svg>
+    <span>Indigo Forge</span>
+  </a>
+  <ul class="if-nav__links">
+    <li><a href="index.html" aria-current="page">Inicio</a></li>
+    <li><a href="philosophy/">Filosofía y riesgo</a></li>
+    <li><a href="performance/">Rendimiento</a></li>
+    <li><a href="research/">Investigación</a></li>
+    <li><a href="copy-trading/">Copy trading</a></li>
+  </ul>
+  <a class="if-nav__portal" href="../investors/">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+    Portal del inversor
+  </a>
+  <a class="if-nav__lang" href="../" hreflang="en" lang="en" title="English version">EN</a>
+</nav>
+
+<main class="wrap">
+
+  <section class="hero hero-home hero-split">
+    <div>
+      <span class="eyebrow eyebrow-lg">Sistemático · Índice NOR25 · cTrader</span>
+      <h1 class="hero-name">Indigo Forge</h1>
+      <p class="lede">Un índice. Una ventaja, dimensionada con honestidad. En vivo en <a href="https://ct-sc.icmarkets.com/copy/strategy/114399?u=DeuxLatis" target="_blank" rel="noopener">cTrader</a>.</p>
+      <div class="actions">
+        <a href="https://ct-sc.icmarkets.com/copy/strategy/114399?u=DeuxLatis" target="_blank" rel="noopener" class="btn btn-primary">Síguelo en cTrader<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+        <a href="performance/" class="btn btn-secondary">Ver los números</a>
+        <a href="../investors/" class="btn btn-ghost">Acceso para inversores</a>
+      </div>
+    </div>
+    <figure class="hero-figure plate">
+      <canvas data-hero-surface role="img" aria-label="Nube de puntos en rotación lenta con 409 pasadas de optimización sobre la superficie de parámetros de la estrategia, con el clúster robusto resaltado en dorado"></canvas>
+      <figcaption class="note">Fig. I · 409 pasadas de optimización — el clúster robusto en dorado</figcaption>
+    </figure>
+  </section>
+
+  <hr class="hr" style="margin:0 0 44px">
+
+  <section class="section-tight" aria-label="Estadísticas principales del backtest">
+    <div class="stat-row">
+      <div>
+        <p class="stat__val stat__val--accent">6,188%</p>
+        <p class="stat__label">ROI en backtest · 2023–2025</p>
+      </div>
+      <div>
+        <p class="stat__val">6.27</p>
+        <p class="stat__label">Factor de beneficio</p>
+      </div>
+      <div>
+        <p class="stat__val">865</p>
+        <p class="stat__label">Operaciones en backtest</p>
+      </div>
+      <div>
+        <p class="stat__val">78.5%</p>
+        <p class="stat__label">Tasa de acierto</p>
+      </div>
+    </div>
+    <p class="note" style="margin-top:20px">Backtest en H4, 01/01/2023–31/12/2025, capital inicial de $2,000. Resultados simulados — consulta <a href="performance/">Rendimiento</a> para el desglose completo y sus limitaciones.</p>
+  </section>
+
+  <hr class="hr" style="margin:0 0 48px">
+
+  <section class="section">
+    <span class="eyebrow">Qué hace diferente</span>
+    <div class="cols-3">
+      <div>
+        <h3>Un solo instrumento, por diseño</h3>
+        <p>Indigo Forge opera únicamente el índice NOR25. Sin una canasta de pares que disperse la atención — cada regla está ajustada al ritmo de volatilidad propio de un solo mercado.</p>
+      </div>
+      <div>
+        <h3>Riesgo diseñado, no esperanza</h3>
+        <p>El tamaño de las posiciones y los límites de exposición se fijan antes de abrir una operación, no se ajustan después. Conoce el <a href="philosophy/">marco de riesgo</a> detrás de los números.</p>
+      </div>
+      <div>
+        <h3>Probado en distintos regímenes</h3>
+        <p>Tres años continuos de datos H4, seguidos de una ventana en vivo con seguimiento prospectivo. Explora el barrido de 409 pasadas de parámetros en <a href="research/">Investigación</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0 0 48px">
+
+  <section class="section split">
+    <div>
+      <span class="eyebrow" style="margin-bottom:14px">Linaje</span>
+      <h2>Construido sobre dos estrategias vivas en cTrader</h2>
+      <p>Indigo Forge es la evolución avanzada de dos productos que ya corren en la tienda de cTrader — Indigo e Indigo Trend. Su lógica de entrada y su trabajo de estructura de mercado se conservan; la gestión de riesgo y la especialización en el NOR25 se reconstruyeron sobre ellos.</p>
+      <div class="actions" style="gap:12px">
+        <a href="https://ctrader.com/products/3804" target="_blank" rel="noopener" class="btn btn-secondary">Indigo en la tienda de cTrader</a>
+        <a href="https://ctrader.com/products/3851" target="_blank" rel="noopener" class="btn btn-secondary">Indigo Trend en la tienda de cTrader</a>
+      </div>
+    </div>
+    <figure class="seal plate">
+      <svg viewBox="0 0 200 200" role="img" aria-label="Emblema de Indigo Forge">
+        <circle cx="100" cy="100" r="92" fill="none" stroke="var(--color-accent)" stroke-width="1.5"></circle>
+        <circle cx="100" cy="100" r="80" fill="none" stroke="var(--color-divider)" stroke-width="1"></circle>
+        <line x1="100" y1="24" x2="100" y2="34" stroke="var(--color-accent)" stroke-width="1.5"></line>
+        <line x1="100" y1="166" x2="100" y2="176" stroke="var(--color-accent)" stroke-width="1.5"></line>
+        <text x="100" y="122" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="68" fill="var(--color-text)">IF</text>
+      </svg>
+    </figure>
+  </section>
+
+  <hr class="hr" style="margin:0 0 48px">
+
+  <section class="section">
+    <blockquote class="pullquote">«Opero Indigo Forge en vivo, en mi propia cuenta, bajo DeuxLatis. No publico nada que no respaldaría con mi propio capital.»</blockquote>
+    <p class="pullquote-by">— DeuxLatis</p>
+  </section>
+
+  <hr class="hr" style="margin:0 0 40px">
+
+  <section style="padding-bottom:64px">
+    <h3 style="font-size:24px;font-weight:400;margin:0 0 12px">Síguelo en vivo</h3>
+    <p style="font-size:15.5px;line-height:1.6;color:var(--ink-78);max-width:56ch;margin:0 0 24px">Copia Indigo Forge en cTrader en pocos minutos, con tu propio dimensionamiento y tu propio stop de equity. Guía completa en la <a href="copy-trading/">página de copy trading</a>.</p>
+    <div class="actions">
+      <a href="https://ct-sc.icmarkets.com/copy/strategy/114399?u=DeuxLatis" target="_blank" rel="noopener" class="btn btn-primary">Copiar en cTrader</a>
+      <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener" class="btn btn-secondary">Ver perfil en cTrader</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="if-footer">
+  <p>Operar CFDs y productos apalancados conlleva un alto nivel de riesgo y puede no ser adecuado para todos los inversores. Los resultados de backtest y simulados tienen limitaciones inherentes y no representan operativa real; el rendimiento pasado no garantiza resultados futuros.</p>
+  <div class="if-footer__links">
+    <span>© 2026 Indigo Forge · Operado en vivo como DeuxLatis</span>
+    <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener">Perfil en cTrader</a>
+    <a href="https://ctrader.com/products/3804" target="_blank" rel="noopener">Indigo</a>
+    <a href="https://ctrader.com/products/3851" target="_blank" rel="noopener">Indigo Trend</a>
+  </div>
+</footer>
+
+<script src="../assets/hero.js" defer></script>
+
+</body>
+</html>

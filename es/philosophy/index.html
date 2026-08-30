@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Filosofía y riesgo — Indigo Forge</title>
+<meta name="description" content="El marco de riesgo detrás de Indigo Forge: dimensionamiento según el equity, límites de exposición y un cortacircuito de equity en el índice NOR25.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='92' fill='none' stroke='%23b68235' stroke-width='10'/><text x='100' y='132' text-anchor='middle' font-family='Georgia,serif' font-weight='600' font-size='92' fill='%23201f1d'>IF</text></svg>">
+<link rel="alternate" hreflang="en" href="https://indigo.gzarruk.com/philosophy/">
+<link rel="alternate" hreflang="es" href="https://indigo.gzarruk.com/es/philosophy/">
+<link rel="alternate" hreflang="x-default" href="https://indigo.gzarruk.com/philosophy/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap">
+<link rel="stylesheet" href="../../assets/classical.css">
+<link rel="stylesheet" href="../../assets/chrome.css">
+</head>
+<body>
+
+<nav class="if-nav">
+  <a class="if-nav__brand" href="../index.html">
+    <svg class="if-nav__mark" viewBox="0 0 200 200" role="img" aria-hidden="true">
+      <circle class="ring" cx="100" cy="100" r="92" fill="none" stroke-width="4"></circle>
+      <text class="glyph" x="100" y="128" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="88">IF</text>
+    </svg>
+    <span>Indigo Forge</span>
+  </a>
+  <ul class="if-nav__links">
+    <li><a href="../index.html">Inicio</a></li>
+    <li><a href="./" aria-current="page">Filosofía y riesgo</a></li>
+    <li><a href="../performance/">Rendimiento</a></li>
+    <li><a href="../research/">Investigación</a></li>
+    <li><a href="../copy-trading/">Copy trading</a></li>
+  </ul>
+  <a class="if-nav__portal" href="../../investors/">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+    Portal del inversor
+  </a>
+  <a class="if-nav__lang" href="../../philosophy/" hreflang="en" lang="en" title="English version">EN</a>
+</nav>
+
+<main class="wrap">
+
+  <section class="hero">
+    <span class="eyebrow eyebrow-lg" style="margin-bottom:16px">Metodología</span>
+    <h1 class="hero-title" style="max-width:18ch">Riesgo por diseño, no por esperanza</h1>
+    <p class="lede">La ventaja de Indigo Forge en el NOR25 es propietaria y así seguirá. Lo que sigue son los principios que gobiernan cuán grande es una posición, cuándo se limita la exposición y cuándo la estrategia se protege a sí misma — no las reglas de entrada y salida.</p>
+  </section>
+
+  <p class="pill" style="margin:0 0 48px">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+    La lógica de entrada/salida y los parámetros exactos no se publican — propiedad intelectual confidencial.
+  </p>
+
+  <section class="section">
+    <span class="eyebrow" style="margin-bottom:20px">La cadena de riesgo</span>
+    <div class="chain">
+      <div class="chain__step">
+        <h3>Dimensionamiento de posiciones</h3>
+        <p>El tamaño se calcula sobre el equity de la cuenta en el momento de abrir la operación, no con una tabla fija de lotes — así, un drawdown reduce el tamaño automáticamente, antes de que ninguna regla tenga que intervenir.</p>
+      </div>
+      <div class="chain__arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div>
+      <div class="chain__step">
+        <h3>Límites de exposición</h3>
+        <p>Un techo de posiciones abiertas y de exposición total al NOR25 a la vez, para que una racha de señales correlacionadas no se acumule en una sola apuesta sobredimensionada.</p>
+      </div>
+      <div class="chain__arrow" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></div>
+      <div class="chain__step">
+        <h3>Cortacircuito de equity</h3>
+        <p>Un umbral de drawdown sobre el equity flotante, no solo sobre el balance cerrado, que recorta o detiene la actividad antes de que un período de estrés se convierta en un stop-out.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0 0 48px">
+
+  <section class="section">
+    <span class="eyebrow" style="margin-bottom:20px">Por qué los backtests estándar engañan</span>
+    <div class="cols-3">
+      <div>
+        <h3 style="font-size:20px">Drawdown de equity vs. de balance</h3>
+        <p style="font-size:14.5px">Las curvas de balance de operaciones cerradas ocultan la pérdida flotante dentro de cada operación. Si una posición pasa tiempo en negativo antes de recuperarse, el drawdown de balance parece leve mientras que el de equity real no. Cada cifra de este sitio se mide sobre el equity.</p>
+      </div>
+      <div>
+        <h3 style="font-size:20px">Dos momentos distintos</h3>
+        <p style="font-size:14.5px">El drawdown máximo en % y en $ ocurren en puntos distintos de una curva compuesta — el pico porcentual llega temprano, con capital pequeño; el pico en dólares, más tarde y a mayor escala. Ninguno cuenta la historia completa por sí solo.</p>
+      </div>
+      <div>
+        <h3 style="font-size:20px">Recuperación sin escala</h3>
+        <p style="font-size:14.5px">El factor de recuperación — beneficio neto sobre drawdown máximo en $ — es la única métrica que no depende del tamaño de la cuenta, y por eso se usa para comparar conjuntos de parámetros de forma justa en el <a href="../research/">barrido de optimización</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0 0 48px">
+
+  <section style="padding-bottom:64px">
+    <span class="eyebrow" style="margin-bottom:16px">Por qué un solo índice</span>
+    <h2 style="font-size:28px;font-weight:400;margin:0 0 14px;max-width:22ch">El NOR25 recibe toda la atención de la estrategia</h2>
+    <p style="font-size:15.5px;line-height:1.65;max-width:64ch;color:var(--ink-78);text-align:justify;margin:0 0 14px">Cada parámetro está ajustado al régimen de volatilidad, al calendario de swaps y a la ventana de liquidez de un solo índice — no promediado sobre una canasta de instrumentos que se comportan distinto. Esa especialización es el precio de renunciar a la diversificación.</p>
+    <p style="font-size:14px;color:var(--ink-60);margin:0">Mira cómo rinde ese intercambio en <a href="../performance/">Rendimiento y backtesting</a>.</p>
+  </section>
+
+</main>
+
+<footer class="if-footer">
+  <p>Operar CFDs y productos apalancados conlleva un alto nivel de riesgo y puede no ser adecuado para todos los inversores. Los resultados de backtest y simulados tienen limitaciones inherentes y no representan operativa real; el rendimiento pasado no garantiza resultados futuros.</p>
+  <div class="if-footer__links">
+    <span>© 2026 Indigo Forge · Operado en vivo como DeuxLatis</span>
+    <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener">Perfil en cTrader</a>
+    <a href="https://ctrader.com/products/3804" target="_blank" rel="noopener">Indigo</a>
+    <a href="https://ctrader.com/products/3851" target="_blank" rel="noopener">Indigo Trend</a>
+  </div>
+</footer>
+
+</body>
+</html>

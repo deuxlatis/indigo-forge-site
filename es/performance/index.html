@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rendimiento y backtesting — Indigo Forge</title>
+<meta name="description" content="Tres años continuos de backtesting en H4 sobre el índice NOR25 desde $2,000 iniciales, con recompensa y riesgo mostrados lado a lado.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='92' fill='none' stroke='%23b68235' stroke-width='10'/><text x='100' y='132' text-anchor='middle' font-family='Georgia,serif' font-weight='600' font-size='92' fill='%23201f1d'>IF</text></svg>">
+<link rel="alternate" hreflang="en" href="https://indigo.gzarruk.com/performance/">
+<link rel="alternate" hreflang="es" href="https://indigo.gzarruk.com/es/performance/">
+<link rel="alternate" hreflang="x-default" href="https://indigo.gzarruk.com/performance/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap">
+<link rel="stylesheet" href="../../assets/classical.css">
+<link rel="stylesheet" href="../../assets/chrome.css">
+</head>
+<body>
+
+<nav class="if-nav">
+  <a class="if-nav__brand" href="../index.html">
+    <svg class="if-nav__mark" viewBox="0 0 200 200" role="img" aria-hidden="true">
+      <circle class="ring" cx="100" cy="100" r="92" fill="none" stroke-width="4"></circle>
+      <text class="glyph" x="100" y="128" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-weight="600" font-size="88">IF</text>
+    </svg>
+    <span>Indigo Forge</span>
+  </a>
+  <ul class="if-nav__links">
+    <li><a href="../index.html">Inicio</a></li>
+    <li><a href="../philosophy/">Filosofía y riesgo</a></li>
+    <li><a href="./" aria-current="page">Rendimiento</a></li>
+    <li><a href="../research/">Investigación</a></li>
+    <li><a href="../copy-trading/">Copy trading</a></li>
+  </ul>
+  <a class="if-nav__portal" href="../../investors/">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
+    Portal del inversor
+  </a>
+  <a class="if-nav__lang" href="../../performance/" hreflang="en" lang="en" title="English version">EN</a>
+</nav>
+
+<main class="wrap">
+
+  <section class="hero">
+    <span class="eyebrow eyebrow-lg" style="margin-bottom:16px">Historial en backtest · NOR25 · H4</span>
+    <h1 class="hero-title">Rendimiento y backtesting</h1>
+    <p class="lede" style="max-width:60ch">Tres años continuos de backtesting en H4 sobre el NOR25, desde $2,000 iniciales, junto a una ventana en vivo con seguimiento prospectivo. Recompensa y riesgo lado a lado — no solo la curva que favorece.</p>
+  </section>
+
+  <section style="padding-bottom:16px">
+    <div class="card-row">
+      <div class="card">
+        <div class="card-kicker">Beneficio neto</div>
+        <div class="card-title" style="color:var(--color-accent)">$123,761</div>
+        <p class="card-body">De $2,000 → $125,761 de equity final</p>
+      </div>
+      <div class="card">
+        <div class="card-kicker">Factor de beneficio</div>
+        <div class="card-title">6.27</div>
+        <p class="card-body">Beneficio bruto ÷ pérdida bruta, todas las operaciones</p>
+      </div>
+      <div class="card">
+        <div class="card-kicker">Tasa de acierto</div>
+        <div class="card-title">78.5%</div>
+        <p class="card-body">679 ganadoras de 865 operaciones</p>
+      </div>
+      <div class="card">
+        <div class="card-kicker">Operación promedio</div>
+        <div class="card-title">$136.74</div>
+        <p class="card-body">Por operación, neto de swaps</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="figure" style="padding:44px 0 8px">
+    <span class="eyebrow eyebrow-quiet" style="margin-bottom:16px">Curva de equity · 01/01/2023–31/12/2025 · forma ilustrativa del informe de backtest</span>
+    <svg viewBox="0 0 800 260" preserveAspectRatio="none" role="img" aria-label="Curva de equity del backtest subiendo de $2,000 a $125,761, con un drawdown máximo de equity del 45.7% a mitad de camino">
+      <line x1="0" y1="6" x2="800" y2="6" stroke="var(--color-divider)" stroke-width="1"></line>
+      <line x1="0" y1="230" x2="800" y2="230" stroke="var(--color-divider)" stroke-width="1"></line>
+      <polyline points="0,230 100,222 200,205 280,182 320,155 350,175 380,198 410,178 450,150 500,120 550,95 600,75 650,55 700,35 750,18 795,6" fill="none" stroke="var(--color-accent)" stroke-width="2.5"></polyline>
+      <circle cx="380" cy="198" r="4" fill="var(--color-accent-800)"></circle>
+    </svg>
+    <div class="figure__scale">
+      <span>Inicio · $2,000</span>
+      <span>Drawdown máximo de equity aquí · −45.7%</span>
+      <span>Final · $125,761</span>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:24px 0 40px">
+
+  <section style="padding-bottom:52px">
+    <span class="eyebrow" style="margin-bottom:20px">Riesgo, no solo recompensa</span>
+    <table class="table">
+      <thead><tr><th scope="col">Métrica</th><th scope="col">Valor</th><th scope="col">Detalle</th></tr></thead>
+      <tbody>
+        <tr><td>Drawdown máximo de equity</td><td class="val">45.72%</td><td>−$38,336.57 flotante, peor período de estrés</td></tr>
+        <tr><td>Drawdown máximo de balance</td><td class="val">12.58%</td><td>−$12,665.68 solo en operaciones cerradas</td></tr>
+        <tr><td>Máximo de pérdidas consecutivas</td><td class="val">28</td><td>158 ganancias consecutivas máximas en la misma corrida</td></tr>
+        <tr><td>Mayor pérdida individual</td><td class="val">−$1,694.18</td><td>frente a la mayor ganancia de $2,449.59</td></tr>
+      </tbody>
+    </table>
+    <p class="note" style="font-size:13px;margin-top:16px">El drawdown de equity incluye la pérdida flotante dentro de cada operación; el de balance no — mira <a href="../philosophy/">por qué importa esa distinción</a>.</p>
+  </section>
+
+  <hr class="hr" style="margin:0 0 52px">
+
+  <section class="section">
+    <span class="eyebrow" style="margin-bottom:20px">Ventana en vivo</span>
+    <div class="split-even">
+      <div>
+        <h3 style="font-size:22px;font-weight:400;margin:0 0 12px">30 mar – 29 ago 2026</h3>
+        <p>Una ventana más corta y reciente sobre la misma base de $2,000 — la volatilidad de una cuenta joven es naturalmente mayor en términos porcentuales, exactamente el efecto descrito en la <a href="../philosophy/">página de metodología</a>.</p>
+        <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener" class="btn btn-secondary">Ver perfil en vivo en cTrader</a>
+      </div>
+      <div class="split-even__stats">
+        <div class="card"><div class="card-kicker">ROI</div><div class="card-title" style="font-size:22px">28.1%</div></div>
+        <div class="card"><div class="card-kicker">Beneficio neto</div><div class="card-title" style="font-size:22px">$562</div></div>
+        <div class="card"><div class="card-kicker">DD máx. de equity</div><div class="card-title" style="font-size:22px">43.6%</div></div>
+        <div class="card"><div class="card-kicker">Duración</div><div class="card-title" style="font-size:22px">4m 30d</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0 0 48px">
+
+  <section style="padding-bottom:64px">
+    <div class="panel">
+      <h3>Lee esto con responsabilidad</h3>
+      <p>Estos son resultados de backtest y simulados, no un historial en vivo auditado. El rendimiento simulado tiene limitaciones inherentes y no representa operativa real; el rendimiento pasado no garantiza resultados futuros.</p>
+      <p>¿Quieres ver cómo se sostienen estos números entre distintas elecciones de parámetros? Abre el <a href="../research/">barrido de optimización de 409 pasadas</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="if-footer">
+  <p>Operar CFDs y productos apalancados conlleva un alto nivel de riesgo y puede no ser adecuado para todos los inversores. Los resultados de backtest y simulados tienen limitaciones inherentes y no representan operativa real; el rendimiento pasado no garantiza resultados futuros.</p>
+  <div class="if-footer__links">
+    <span>© 2026 Indigo Forge · Operado en vivo como DeuxLatis</span>
+    <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener">Perfil en cTrader</a>
+    <a href="https://ctrader.com/products/3804" target="_blank" rel="noopener">Indigo</a>
+    <a href="https://ctrader.com/products/3851" target="_blank" rel="noopener">Indigo Trend</a>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Research — 4D Optimization Explorer — Indigo Forge</title>
-<meta name="description" content="Every parameter pass from the 2023-2025 Indigo Forge sweep, plotted in your browser. Nothing is uploaded.">
+<title>Investigación — Explorador 4D de optimización — Indigo Forge</title>
+<meta name="description" content="Cada pasada de parámetros del barrido 2023-2025 de Indigo Forge, graficada en tu navegador. No se sube nada.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><circle cx='100' cy='100' r='92' fill='none' stroke='%23b68235' stroke-width='10'/><text x='100' y='132' text-anchor='middle' font-family='Georgia,serif' font-weight='600' font-size='92' fill='%23201f1d'>IF</text></svg>">
 <link rel="alternate" hreflang="en" href="https://indigo.gzarruk.com/research/">
 <link rel="alternate" hreflang="es" href="https://indigo.gzarruk.com/es/research/">
@@ -12,8 +12,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap">
-<link rel="stylesheet" href="../assets/classical.css">
-<link rel="stylesheet" href="../assets/chrome.css">
+<link rel="stylesheet" href="../../assets/classical.css">
+<link rel="stylesheet" href="../../assets/chrome.css">
 </head>
 <body>
 
@@ -26,49 +26,49 @@
     <span>Indigo Forge</span>
   </a>
   <ul class="if-nav__links">
-    <li><a href="../index.html">Overview</a></li>
-    <li><a href="../philosophy/">Philosophy &amp; Risk</a></li>
-    <li><a href="../performance/">Performance</a></li>
-    <li><a href="./" aria-current="page">Research</a></li>
-    <li><a href="../copy-trading/">Copy Trading</a></li>
+    <li><a href="../index.html">Inicio</a></li>
+    <li><a href="../philosophy/">Filosofía y riesgo</a></li>
+    <li><a href="../performance/">Rendimiento</a></li>
+    <li><a href="./" aria-current="page">Investigación</a></li>
+    <li><a href="../copy-trading/">Copy trading</a></li>
   </ul>
-  <a class="if-nav__portal" href="../investors/">
+  <a class="if-nav__portal" href="../../investors/">
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="1"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>
-    Investor Portal
+    Portal del inversor
   </a>
-  <a class="if-nav__lang" href="../es/research/" hreflang="es" lang="es" title="Versión en español">ES</a>
+  <a class="if-nav__lang" href="../../research/" hreflang="en" lang="en" title="English version">EN</a>
 </nav>
 
 <main class="wrap">
 
   <section class="hero">
-    <span class="eyebrow eyebrow-lg" style="margin-bottom:16px">Research tool · public</span>
-    <h1 class="hero-title" style="max-width:22ch">4D optimization explorer</h1>
-    <p class="lede" style="max-width:60ch">Every parameter pass from the 2023&ndash;2025 sweep, plotted in your browser &mdash; nothing uploaded. Pick any two metrics for the axes and a third for color, and see where the strategy&rsquo;s edge actually sits.</p>
+    <span class="eyebrow eyebrow-lg" style="margin-bottom:16px">Herramienta de investigación · pública</span>
+    <h1 class="hero-title" style="max-width:22ch">Explorador 4D de optimización</h1>
+    <p class="lede" style="max-width:60ch">Cada pasada de parámetros del barrido 2023&ndash;2025, graficada en tu navegador &mdash; sin subir nada. Elige dos métricas para los ejes y una tercera para el color, y mira dónde se asienta realmente la ventaja de la estrategia.</p>
   </section>
 
   <section style="padding-bottom:20px">
     <div class="channels" style="margin-bottom:24px">
       <div>
-        <div class="channels__label">X axis</div>
-        <div class="tag tag-outline">Max equity drawdown %</div>
+        <div class="channels__label">Eje X</div>
+        <div class="tag tag-outline">Drawdown máx. de equity %</div>
       </div>
       <div>
-        <div class="channels__label">Y axis</div>
-        <div class="tag tag-outline">Profit factor</div>
+        <div class="channels__label">Eje Y</div>
+        <div class="tag tag-outline">Factor de beneficio</div>
       </div>
       <div>
         <div class="channels__label">Color</div>
-        <div class="tag tag-outline">Win rate</div>
+        <div class="tag tag-outline">Tasa de acierto</div>
       </div>
       <div class="channels__hygiene">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>
-        Stop-outs filtered &middot; duplicates removed
+        Stop-outs filtrados &middot; duplicados eliminados
       </div>
     </div>
 
     <div class="figure">
-      <svg viewBox="0 0 820 420" role="img" aria-label="Scatter plot of optimization passes: maximum equity drawdown percent on the horizontal axis against profit factor on the vertical axis. Most surviving passes cluster below 50 percent drawdown at profit factors between 4 and 7; stopped-out passes sit at 100 percent drawdown with profit factors near 2.">
+      <svg viewBox="0 0 820 420" role="img" aria-label="Gráfico de dispersión de pasadas de optimización: drawdown máximo de equity en porcentaje en el eje horizontal frente al factor de beneficio en el vertical. La mayoría de las pasadas supervivientes se agrupan por debajo del 50 por ciento de drawdown con factores de beneficio entre 4 y 7; las pasadas con stop-out se sitúan en el 100 por ciento de drawdown con factores cercanos a 2.">
         <line x1="60" y1="20" x2="60" y2="380" stroke="var(--color-divider)" stroke-width="1"></line>
         <line x1="60" y1="380" x2="800" y2="380" stroke="var(--color-divider)" stroke-width="1"></line>
       <circle cx="671.64" cy="110.51" r="4.43" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
@@ -121,47 +121,47 @@
       <circle cx="192.39" cy="94.57" r="5.20" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
       <circle cx="177.26" cy="32.86" r="5.31" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
       <circle cx="223.74" cy="104.34" r="5.13" fill="var(--color-accent-600)" fill-opacity="0.75" stroke="var(--color-accent-900)" stroke-width="0.5"></circle>
-        <text x="430" y="410" text-anchor="middle" font-size="12" fill="var(--color-text)" opacity="0.55">Max equity drawdown %</text>
-        <text x="20" y="200" text-anchor="middle" font-size="12" fill="var(--color-text)" opacity="0.55" transform="rotate(-90 20 200)">Profit factor</text>
+        <text x="430" y="410" text-anchor="middle" font-size="12" fill="var(--color-text)" opacity="0.55">Drawdown máx. de equity %</text>
+        <text x="20" y="200" text-anchor="middle" font-size="12" fill="var(--color-text)" opacity="0.55" transform="rotate(-90 20 200)">Factor de beneficio</text>
       </svg>
     </div>
-    <p class="note" style="margin-top:12px">Sample of the 2023&ndash;2025 sweep, positioned from the actual pass results. Red-tinted markers are stopped-out passes (&ge;100% equity drawdown), shown here rather than hidden.</p>
+    <p class="note" style="margin-top:12px">Muestra del barrido 2023&ndash;2025, posicionada a partir de los resultados reales de cada pasada. Los marcadores rojizos son pasadas con stop-out (&ge;100% de drawdown de equity), mostradas aquí en lugar de ocultarse.</p>
   </section>
 
   <hr class="hr" style="margin:24px 0 44px">
 
   <section style="padding-bottom:16px">
     <div class="card-row">
-      <div class="card"><div class="card-kicker">Passes evaluated</div><div class="card-title" style="font-size:24px">409</div></div>
-      <div class="card"><div class="card-kicker">Stopped out</div><div class="card-title" style="font-size:24px">98</div></div>
-      <div class="card"><div class="card-kicker">Duplicates removed</div><div class="card-title" style="font-size:24px">33</div></div>
-      <div class="card"><div class="card-kicker">Best profit factor</div><div class="card-title" style="font-size:24px;color:var(--color-accent)">6.75</div></div>
+      <div class="card"><div class="card-kicker">Pasadas evaluadas</div><div class="card-title" style="font-size:24px">409</div></div>
+      <div class="card"><div class="card-kicker">Con stop-out</div><div class="card-title" style="font-size:24px">98</div></div>
+      <div class="card"><div class="card-kicker">Duplicados eliminados</div><div class="card-title" style="font-size:24px">33</div></div>
+      <div class="card"><div class="card-kicker">Mejor factor de beneficio</div><div class="card-title" style="font-size:24px;color:var(--color-accent)">6.75</div></div>
     </div>
   </section>
 
   <section style="padding:44px 0 20px">
     <div class="panel" style="text-align:center;padding:32px 28px">
-      <h3 style="font-size:22px;font-weight:400;margin:0 0 10px">Open the live explorer</h3>
-      <p style="max-width:56ch;margin:0 auto 22px">The chart above is a still frame. The explorer itself plots all 409 passes in interactive 3D, maps a fourth metric to a color ramp, and groups them with k-means cluster hulls &mdash; and reads your own <code>.optres</code> exports entirely on your machine.</p>
-      <a href="../explorer/" class="btn btn-primary">Launch 4D explorer<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
+      <h3 style="font-size:22px;font-weight:400;margin:0 0 10px">Abre el explorador en vivo</h3>
+      <p style="max-width:56ch;margin:0 auto 22px">El gráfico de arriba es un fotograma fijo. El explorador grafica las 409 pasadas en 3D interactivo, asigna una cuarta métrica a una rampa de color y las agrupa con envolventes k-means &mdash; y lee tus propios archivos <code>.optres</code> exportados, completamente en tu máquina.</p>
+      <a href="../../explorer/" class="btn btn-primary">Abrir explorador 4D<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></a>
     </div>
   </section>
 
   <section style="padding:24px 0 64px">
     <div class="panel">
-      <h3>Genetic search, not grid search</h3>
-      <p>409 passes across risk-sizing parameters (max open positions, balance-percent sizing), optimized on 2023&ndash;2025 M1 data with a $2,000 starting balance and realistic commission and spread. Parameter values themselves are not disclosed.</p>
-      <p>Reads any exported <code>.optres</code> file locally in your browser &mdash; nothing is uploaded to a server. Read the reasoning behind these metrics on the <a href="../philosophy/">methodology page</a>.</p>
+      <h3>Búsqueda genética, no búsqueda en malla</h3>
+      <p>409 pasadas sobre parámetros de dimensionamiento de riesgo (máximo de posiciones abiertas, tamaño por porcentaje del balance), optimizadas con datos M1 de 2023&ndash;2025, balance inicial de $2,000 y comisiones y spread realistas. Los valores de los parámetros no se divulgan.</p>
+      <p>Lee cualquier archivo <code>.optres</code> exportado, localmente en tu navegador &mdash; nada se sube a un servidor. Conoce el razonamiento detrás de estas métricas en la <a href="../philosophy/">página de metodología</a>.</p>
     </div>
   </section>
 
 </main>
 
 <footer class="if-footer">
-  <p>Trading CFDs and leveraged products carries a high level of risk and may not be suitable for all investors. Backtested and simulated results have inherent limitations and do not represent actual trading; past performance does not guarantee future results.</p>
+  <p>Operar CFDs y productos apalancados conlleva un alto nivel de riesgo y puede no ser adecuado para todos los inversores. Los resultados de backtest y simulados tienen limitaciones inherentes y no representan operativa real; el rendimiento pasado no garantiza resultados futuros.</p>
   <div class="if-footer__links">
-    <span>&copy; 2026 Indigo Forge &middot; Traded live as DeuxLatis</span>
-    <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener">cTrader Profile</a>
+    <span>&copy; 2026 Indigo Forge &middot; Operado en vivo como DeuxLatis</span>
+    <a href="https://ctrader.com/u/DeuxLatis" target="_blank" rel="noopener">Perfil en cTrader</a>
     <a href="https://ctrader.com/products/3804" target="_blank" rel="noopener">Indigo</a>
     <a href="https://ctrader.com/products/3851" target="_blank" rel="noopener">Indigo Trend</a>
   </div>

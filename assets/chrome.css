@@ -91,6 +91,16 @@
 
 .if-nav__portal svg { display: block; flex: none; }
 
+.if-nav__lang {
+  flex: none;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border: 1px solid var(--if-chrome-line);
+  border-radius: 3px;
+}
+.if-nav__lang:hover { color: var(--if-chrome-accent); border-color: var(--if-chrome-accent); }
+
 .if-nav a:focus-visible,
 .if-footer a:focus-visible {
   outline: 2px solid var(--if-chrome-accent);
